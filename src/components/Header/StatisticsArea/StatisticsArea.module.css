@@ -1,0 +1,37 @@
+.statistics {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  width: 100%;
+}
+
+.statisticsItem {
+  width: 100%;
+  position: relative;
+}
+
+.statisticsItem + .statisticsItem::before {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  width: 2px;
+  height: 20px;
+  background-color: #e3e8eb;
+  content: "";
+}
+
+.statisticsTitle {
+  color: #78869f;
+}
+
+.statisticsInfo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@media (max-width: 850px) {
+  .statisticsTitle,
+  .statisticsInfo {
+    font-size: 16px;
+  }
+}

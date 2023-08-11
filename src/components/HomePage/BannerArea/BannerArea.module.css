@@ -1,0 +1,65 @@
+.bannerArea {
+  width: 100%;
+  position: relative;
+}
+
+.banner {
+  width: 100%;
+  object-fit: cover;
+}
+
+.title {
+  position: absolute;
+  top: 25%;
+  text-align: center;
+  width: 100%;
+  color: #fff;
+  font-size: 50px;
+}
+
+.scrollDownArea {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translate(-50%);
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.scrollDownArrow {
+  margin-top: 5px;
+}
+
+.scrollDownArea:hover .scrollDownArrow {
+  transform: translate(0, 10px);
+  transition: all 1s ease;
+}
+
+@media (max-width: 1200px) {
+  .title {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 900px) {
+  .title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .title {
+    font-size: 16px;
+  }
+  .scrollDownArea {
+    font-size: 14px;
+  }
+}

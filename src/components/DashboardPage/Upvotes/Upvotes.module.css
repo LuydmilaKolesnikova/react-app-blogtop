@@ -1,0 +1,13 @@
+.upvotes {
+  grid-row: 1 / 2;
+  grid-column: 2 / 4;
+}
+
+.upvotes::after {
+  content: url("../../../images/dashboard/upvotes.png");
+  width: 94px;
+  height: 17px;
+}
+.procent {
+  color: #f1bb47;
+}

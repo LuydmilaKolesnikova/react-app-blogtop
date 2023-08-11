@@ -1,0 +1,14 @@
+.profileViews {
+  grid-row: 1 / 2;
+  grid-column: 5 / 6;
+}
+
+.profileViews::after {
+  content: url("../../../images/dashboard/profileViews.png");
+  width: 101px;
+  height: 15px;
+}
+
+.procent {
+  color: #ff62c2;
+}

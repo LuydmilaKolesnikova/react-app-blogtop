@@ -1,0 +1,76 @@
+.pieChart {
+  grid-row: 2 / 3;
+  grid-column: 1 / 3;
+}
+
+.area {
+  display: flex;
+  gap: 10px;
+}
+
+.diagram {
+  width: 60%;
+  padding-left: 20px;
+  padding-top: 30px;
+  cursor: pointer;
+}
+
+.legend {
+  width: 40%;
+}
+
+.totalVisitorsCount {
+  font-size: 50px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  line-height: 16px;
+}
+
+.osName {
+  margin-left: 10px;
+  color: #000;
+}
+
+.diagramItemHover {
+  stroke-width: 50px;
+  transition: all 0.3s ease-in-out;
+}
+
+.legendMakintosh {
+  fill: #69d53f;
+}
+
+.diagramMakintosh {
+  stroke: #69d53f;
+}
+
+.legendWindows {
+  fill: #f25656;
+}
+
+.diagramWindows {
+  stroke: #f25656;
+}
+
+.legendAndroid {
+  fill: #3599ea;
+}
+
+.diagramAndroid {
+  stroke: #3599ea;
+}
+
+.legendiOS {
+  fill: #f1bb47;
+}
+
+.diagramiOS {
+  stroke: #f1bb47;
+}

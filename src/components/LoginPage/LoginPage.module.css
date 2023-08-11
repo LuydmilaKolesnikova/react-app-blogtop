@@ -1,0 +1,82 @@
+.wrapper {
+  max-width: 400px;
+  width: 100%;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 15px;
+}
+
+.area {
+  display: flex;
+  justify-content: center;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.fieldArea {
+  width: 100%;
+}
+
+.title {
+  margin-bottom: 30px;
+  margin-top: 10px;
+  color: #000;
+}
+
+.field + .field {
+  margin-top: 40px;
+}
+
+.label,
+.input {
+  display: block;
+}
+
+.label {
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: #ff7043;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.input {
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+}
+
+.input::placeholder {
+  font-style: italic;
+}
+
+.submitBtn {
+  width: 100%;
+  height: 60px;
+  margin-top: 60px;
+  background-color: #ff7043;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+.errorInput {
+  border-color: red;
+}
+
+.needRegister {
+  margin: 40px 0px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.needAccountLink {
+  color: #ff7043;
+}

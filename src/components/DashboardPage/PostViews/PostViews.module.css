@@ -1,0 +1,14 @@
+.postViews {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+}
+
+.postViews::after {
+  content: url("../../../images/dashboard/postViews.png");
+  width: 59px;
+  height: 60px;
+}
+
+.procent {
+  color: #44d775;
+}

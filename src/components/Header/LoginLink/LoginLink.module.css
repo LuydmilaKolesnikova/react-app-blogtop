@@ -1,0 +1,15 @@
+.loginLink {
+  width: 80px;
+  height: 30px;
+  background-color: #ff7043;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 20px;
+}
+
+.loginLink a {
+  display: inline-block;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+}

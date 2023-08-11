@@ -1,0 +1,36 @@
+.postProgress {
+  grid-row: 3 / 4;
+  grid-column: 4 / 6;
+}
+
+.area {
+  padding: 0 20px;
+}
+
+.item {
+  margin-bottom: 20px;
+}
+
+.itemCategory {
+  margin-bottom: 7px;
+}
+
+.itemVideoPosts {
+  fill: #67def8;
+}
+
+.itemOpenLists {
+  fill: #ff7043;
+}
+
+.itemNormalBlogPosts {
+  fill: #44d775;
+}
+
+.itemAudioPosts {
+  fill: #8f3ee4;
+}
+
+.itemImagesVideos {
+  fill: #ff62c2;
+}

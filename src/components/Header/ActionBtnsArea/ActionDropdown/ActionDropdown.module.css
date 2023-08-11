@@ -1,0 +1,175 @@
+.dropDown {
+  position: absolute;
+  top: 80px;
+  right: -15px;
+  border-radius: 5px;
+  width: 390px;
+  background-color: #fff;
+  box-shadow: 2px 2px 2px #f0f0f0;
+  z-index: 100;
+}
+
+.dropDown::before {
+  content: "";
+  position: absolute;
+  right: 27px;
+  top: -17px;
+  border: 8px solid transparent;
+  border-bottom: 10px solid #fff;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  padding-left: 18px;
+  padding-right: 18px;
+  color: #78869f;
+  align-items: center;
+}
+
+.title svg {
+  fill: #78869f;
+  cursor: pointer;
+}
+
+.markAllAsReadBtn {
+  margin-right: 15px;
+  background: none;
+}
+
+.item {
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 18px;
+  padding: 24px 10px 24px 18px;
+  border-top: 1px solid #e0e9ed;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 22px;
+  cursor: pointer;
+}
+
+.messagesInfoTop, .notificationsInfoTop {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 5px;
+}
+
+.info {
+ width: 100%;
+ 
+}
+
+.action,
+.message,
+.notification, .text {
+  width: 100%;
+  color: #78869f;
+  word-wrap: break-word;
+}
+
+.name {
+  width: 200px;
+  overflow: hidden;
+}
+
+.time {
+  width: 100px;
+  color: #78869f;
+  font-size: 12px;
+  text-align: right;
+}
+
+.infoBottom {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.mutualCount {
+  font-size: 14px;
+  color: #78869f;
+}
+
+.statusBtn {
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 6px;
+  height: 26px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 5px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.followBtn {
+  background-color: #ff7043;
+  width: 110px;
+}
+
+.blockBtn {
+  background-color: #c0c9d0;
+  width: 70px;
+}
+
+.footerBtn {
+  color: #fff;
+  text-transform: uppercase;
+  height: 60px;
+  width: 100%;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.footerFollowfeedBtn {
+  background-color: #ff62c2;
+}
+
+.footerMessagesBtn {
+  background-color: #44d675;
+}
+
+.footerNotificationsBtn {
+  background-color: #ff7043;
+}
+
+@media (max-width: 650px) {
+  .dropDown {
+    width: 300px;
+  }
+  .name {
+    width: 140px;
+  }
+  .time {
+    width: 70px;
+    font-size: 12px;
+  }
+  .followfeedInfoBottom {
+    flex-wrap: wrap;
+  }
+  .mutualCount {
+    margin-bottom: 10px;
+  }
+  .footerBtn {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .dropDown {
+    position: absolute;
+    left: -500%;
+    top: 80px;
+  
+  }
+  .dropDown::before {
+    right: 55px;
+  }
+}

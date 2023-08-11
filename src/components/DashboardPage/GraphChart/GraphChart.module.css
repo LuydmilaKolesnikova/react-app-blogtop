@@ -1,0 +1,40 @@
+.graphChart {
+  grid-row: 2 / 3;
+  grid-column: 3 / 6;
+}
+
+.area {
+  display: flex;
+  justify-items: center;
+  width: 880px;
+  margin: 0 auto;
+}
+
+.axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40px;
+}
+
+.axisLabel,
+.itemLabel {
+  font-size: 13px;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  width: 840px;
+  height: 230px;
+  margin: 0 auto;
+}
+
+.item {
+  height: 100%;
+  cursor: pointer;
+}
+
+.itemLabel {
+  text-align: center;
+}

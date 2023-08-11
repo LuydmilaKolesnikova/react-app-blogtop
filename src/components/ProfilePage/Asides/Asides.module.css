@@ -1,0 +1,187 @@
+.aside {
+  background-color: #fff;
+  padding: 0 28px 20px;
+  margin-bottom: 10px;
+}
+
+.title {
+  color: #40505a;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding-bottom: 13px;
+  border-bottom: 2px solid #dce1e2;
+  padding-top: 50px;
+  margin-bottom: 15px;
+}
+
+.interest {
+  padding-left: 21px;
+  position: relative;
+}
+
+.interest + .interest {
+  margin-top: 23px;
+}
+
+.interest::before {
+  position: absolute;
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  border: 1px solid #78869f;
+  top: 7px;
+  left: 0;
+}
+
+.friendsIcons {
+  display: flex;
+  justify-items: flex-start;
+  flex-wrap: wrap;
+  column-gap: 8px;
+  row-gap: 12px;
+}
+
+.friendIcon {
+  width: 46px;
+  height: 46px;
+  border-radius: 23px;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.badgesIcons {
+  display: flex;
+  justify-items: flex-start;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  row-gap: 12px;
+}
+
+.badgeItem {
+  width: 36px;
+  height: 36px;
+  position: relative;
+}
+
+.badgeIcon {
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.badgeCount {
+  position: absolute;
+  content: "";
+  width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: red;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  top: -5px;
+  right: 0;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.socialIcons {
+  display: flex;
+  justify-items: flex-start;
+  flex-wrap: wrap;
+  column-gap: 10px;
+  row-gap: 12px;
+}
+
+.socialIcon {
+  width: 46px;
+  height: 46px;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.submisstionItem {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.submisstionItem + .submisstionItem {
+  margin-top: 30px;
+}
+
+.submisstionIcon {
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+  cursor: pointer;
+  object-fit: cover;
+  margin-right: 18px;
+}
+
+.submisstionInfo {
+  line-height: 20px;
+}
+
+.submisstionInfoHover .submisstionAction {
+  color: #ff7043;
+}
+
+.submisstionAction {
+  color: #40505a;
+}
+
+.submisstionPostName {
+  color: #ff7043;
+}
+
+.submisstionTime {
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.imagesIcons {
+  display: flex;
+  justify-items: flex-start;
+  flex-wrap: wrap;
+  column-gap: 9px;
+  row-gap: 9px;
+}
+
+.imageIcon {
+  cursor: pointer;
+}
+
+@media (max-width: 1500px) {
+  .imagesIcons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .friendsIcons {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .badgesIcons {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1300px) {
+  .leftAside {
+    grid-area: leftAside;
+  }
+  .rightAside {
+    grid-area: rightAside;
+  }
+}
+
+@media (max-width: 900px) {
+  .submisstionItem {
+    justify-content: flex-start;
+  }
+
+  .submisstionIcon {
+    height: 40px;
+    width: 40px;
+  }
+}

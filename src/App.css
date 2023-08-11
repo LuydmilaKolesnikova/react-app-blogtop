@@ -1,0 +1,31 @@
+.app-wrapper {
+  max-width: 1680px;
+  margin: 0 auto;
+  background-color: #eff3f5;
+}
+
+body {
+  box-sizing: border-box;
+  color: #78869f;
+}
+
+p {
+  margin: 0;
+}
+
+ul,
+li {
+  display: inline;
+}
+
+a {
+  color: #78869f;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
