@@ -126,7 +126,7 @@ const RegisterPage = ({ registering, isRegistrationSuccess }) => {
                     maxLength: { value: 10, message: "Max length is 10" },
                   })}
                 />
-                {errors.password && (
+                {errors.repeatPassword && (
                   <div className={styles.error}>
                     {errors.repeatPassword.message}
                   </div>
