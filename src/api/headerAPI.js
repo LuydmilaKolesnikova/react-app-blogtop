@@ -1,4 +1,4 @@
-import { instance } from "./instanceAPI";
+import { instance } from "./instanceAPI.tsx";
 
 export const headerAPI = {
   getAuthUserData(id) {

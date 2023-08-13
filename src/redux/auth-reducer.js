@@ -1,4 +1,4 @@
-import { authAPI } from "../api/authAPI";
+import { authAPI } from "../api/authAPI.tsx";
 
 const SET_USER_DATA = "SET_USER_DATA";
 const REGISTRATION_SUCCESS = "REGISTRATION_SUCCESS";
