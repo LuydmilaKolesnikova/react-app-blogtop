@@ -1,0 +1,15 @@
+import React from "react";
+import styles from "./Asides.module.css";
+import Submisstions from "./Submisstions.tsx";
+import Images from "./Images.tsx";
+
+const RightAside = () => {
+  return (
+    <aside className={`${styles.aside} ${styles.rightAside}`}>
+      <Submisstions />
+      <Images />
+    </aside>
+  );
+};
+
+export default RightAside;
