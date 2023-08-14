@@ -35,8 +35,7 @@ const Friends = () => {
       <div className={styles.friendsIcons}>
         {friends.map((friend, index) => (
           <NavLink key={index}
-            ////
-            to={""}>
+            to="">
             <img className={styles.friendIcon} src={friend} alt="" />
           </NavLink>
         ))}

@@ -15,8 +15,7 @@ class HeaderContainer extends React.Component<any> {
         profileData={this.props.profileData}
         statistics={this.props.statistics}
         newActions={this.props.newActions}
-        ////
-        isAuth={true}
+        isAuth={this.props.isAuth}
       />
     );
   }

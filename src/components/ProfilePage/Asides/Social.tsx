@@ -14,8 +14,7 @@ const Social = () => {
       <div className={styles.socialIcons}>
         {socials.map((social, index) => (
           <NavLink key={index}
-            ////
-            to={""}>            
+            to="">            
             <img className={styles.socialIcon} src={social} alt="" />
           </NavLink>
         ))}

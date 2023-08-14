@@ -7,13 +7,11 @@ import { useLocation } from "react-router-dom";
 
 const ProfileMenu = () => {
   let [profileMenuVisible, setProfileMenuVisible] = useState(false);
-  const { location
-  ////  , setLocation
-   } = useContext(LocationContext);
+  const { location, setLocation} = useContext(LocationContext);
   const loc = useLocation();
 
   const setLocation1 = () => {
-    ////setLocation(loc.pathname);
+    setLocation(loc.pathname);
   };
 
   return (

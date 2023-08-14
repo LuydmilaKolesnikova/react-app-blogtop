@@ -17,8 +17,7 @@ const Post = ({
   return (
     <div className={styles.post}>
       <NavLink className={styles.postInfo} 
-          ////
-          to={""}>
+        to="">
         <div className={styles.photoArea}>
           <img className={styles.photo} src={photo} alt="" />
           <p className={styles.theme}>{theme}</p>
@@ -36,8 +35,7 @@ const Post = ({
           <span>{likesCount}</span>
         </div>
         <NavLink
-          ////
-          to={""}
+          to=""
           className={`${styles.statisticsBlock} ${styles.MessagesStatisticsBlock}`}
         >
           <img src={message} alt="" />

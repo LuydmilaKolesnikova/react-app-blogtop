@@ -4,9 +4,9 @@ import LocationContext from "../context/LocationProvider";
 import { useContext } from "react";
 
 const PrivateRoute = ({ isAuth }) => {
-  const location = useContext(LocationContext);
+  const {location, setLocation} = useContext(LocationContext);
   const loc = useLocation();
-  //// setLocation(loc.pathname);
+  setLocation(loc.pathname);
 
   return isAuth ? <Outlet /> : <Navigate to="/login" />;
 };

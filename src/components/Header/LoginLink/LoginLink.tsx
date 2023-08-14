@@ -6,14 +6,12 @@ import LocationContext from "../../../utils/context/LocationProvider";
 import { useContext } from "react";
 
 const LoginLink = () => {
-  const { location
-    //,setLocation
-   } = useContext(LocationContext);
+  const { location, setLocation} = useContext(LocationContext);
   const loc = useLocation();
   return (
     <div className={styles.loginLink}>
       <NavLink to="login" 
-      ////onMouseDown={() => setLocation(loc.pathname)}
+      onMouseDown={() => setLocation(loc.pathname)}
       >
         Login
       </NavLink>

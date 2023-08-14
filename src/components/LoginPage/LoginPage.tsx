@@ -83,7 +83,7 @@ const LoginPage = ({ login, isAuth }) => {
             </div>
             <button
               className={styles.submitBtn}
-              ////type=""
+              type="submit"
               onClick={() => onSubmit}
             >
               Login
@@ -94,8 +94,7 @@ const LoginPage = ({ login, isAuth }) => {
       <div className={styles.needRegister}>
         <span className={styles.needAccountText}>Need an account?</span>
         <NavLink
-          ////
-          to={""}
+          to="register"
           className={styles.needAccountLink}
           onMouseDown={() => setReg(true)}
         >
