@@ -2,11 +2,11 @@ import React, { useContext, useState } from "react";
 import styles from "./LoginPage.module.css";
 import classnames from "classnames";
 import { useForm } from "react-hook-form";
-import LocationContext from "../../utils/context/LocationProvider.tsx";
+import LocationContext from "../../utils/context/LocationProvider";
 import { NavLink, Navigate } from "react-router-dom";
 
 const LoginPage = ({ login, isAuth }) => {
-  const { location, setLocation } = useContext(LocationContext);
+  const { location } = useContext(LocationContext);
   const [reg, setReg] = useState(false);
 
   const {
@@ -83,7 +83,7 @@ const LoginPage = ({ login, isAuth }) => {
             </div>
             <button
               className={styles.submitBtn}
-              type=""
+              ////type=""
               onClick={() => onSubmit}
             >
               Login
@@ -94,6 +94,8 @@ const LoginPage = ({ login, isAuth }) => {
       <div className={styles.needRegister}>
         <span className={styles.needAccountText}>Need an account?</span>
         <NavLink
+          ////
+          to={""}
           className={styles.needAccountLink}
           onMouseDown={() => setReg(true)}
         >

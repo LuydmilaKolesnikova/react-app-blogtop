@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./ActionDropdown.module.css";
-import { SettingsIcon } from "../../../SVG-icons/SVG-icons.tsx";
+import { SettingsIcon } from "../../../SVG-icons/SVG-icons";
 import avatar from "../../../../images/avatars/avatar4.jpg";
 
 const data = [

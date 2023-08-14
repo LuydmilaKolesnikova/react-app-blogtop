@@ -1,14 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import RegisterPage from "./RegisterPage.tsx";
-import { registering } from "../../redux/auth-reducer.tsx";
+import RegisterPage from "./RegisterPage";
+import { registering } from "../../redux/auth-reducer";
 
-class RegisterPageContainer extends React.Component {
+class RegisterPageContainer extends React.Component<any> {
   render() {
     return (
       <RegisterPage
         {...this.props}
-        register={this.props.register}
+        registering={this.props.register}
         isRegistrationSuccess={this.props.isRegistrationSuccess}
       />
     );

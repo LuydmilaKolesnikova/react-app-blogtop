@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./PieChart.module.css";
 import commonStyles from "../DashboardPage.module.css";
-import PieChartLegendItem from "./PieChartLegendItem.tsx";
-import PieChartDiagramItem from "./PieChartDiagramItem.tsx";
+import PieChartLegendItem from "./PieChartLegendItem";
+import PieChartDiagramItem from "./PieChartDiagramItem";
 
 const PieChart = ({ pieChart }) => {
   const angles = (os, allVisitors) => {

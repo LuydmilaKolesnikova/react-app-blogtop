@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import LogoutPage from "./LogoutPage.tsx";
-import { logout } from "../../redux/auth-reducer.tsx";
+import LogoutPage from "./LogoutPage";
+import { logout } from "../../redux/auth-reducer";
 
-class LogoutPageContainer extends React.Component {
+class LogoutPageContainer extends React.Component<any> {
   render() {
     return (
       <LogoutPage

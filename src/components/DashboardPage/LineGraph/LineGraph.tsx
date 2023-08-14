@@ -37,14 +37,14 @@ const LineGraph = ({ lineGraph }) => {
 
     linePath = d3
       .line()
-      .x((d) => getX(d.year))
-      .y((d) => getY(d.newUsers))
+      .x((d) => getX(d[0]))
+      .y((d) => getY(d[1]))
       .curve(d3.curveMonotoneX)(lineGraph.points);
 
     areaPath = d3
       .area()
-      .x((d) => getX(d.year))
-      .y0((d) => getY(d.newUsers))
+      .x((d) => getX(d[0]))
+      .y0((d) => getY(d[1]))
       .y1(() => getY(0))
       .curve(d3.curveMonotoneX)(lineGraph.points);
   }

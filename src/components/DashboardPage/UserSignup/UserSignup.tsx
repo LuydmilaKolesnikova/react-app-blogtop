@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./UserSignup.module.css";
 import commonStyles from "../DashboardPage.module.css";
-import UserSignupItem from "./UserSignupItem.tsx";
+import UserSignupItem from "./UserSignupItem";
 
 const UserSignup = ({ userSignup }) => {
   return (

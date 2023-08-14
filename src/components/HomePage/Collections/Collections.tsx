@@ -36,7 +36,7 @@ import trv6 from "../../../images/travel-collection/mayan.jpg";
 import trv7 from "../../../images/travel-collection/mountain.jpg";
 import trv8 from "../../../images/travel-collection/red-dressed-woman.jpg";
 
-import Collection from "./Collection.tsx";
+import Collection from "./Collection";
 
 const data = [
   { title: "ARTS", images: [art1, art2, art3, art4, art5, art6, art7, art8] },

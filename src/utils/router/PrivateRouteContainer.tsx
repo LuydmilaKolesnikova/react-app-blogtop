@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import PrivateRoute from "./PrivateRoute.tsx";
+import PrivateRoute from "./PrivateRoute";
 
-class PrivateRouteContainer extends React.Component {
+class PrivateRouteContainer extends React.Component<any> {
   render() {
     return <PrivateRoute {...this.props} isAuth={this.props.isAuth} />;
   }

@@ -1,4 +1,4 @@
-import { dashboardAPI } from "../api/dashboardAPI.tsx";
+import { dashboardAPI } from "../api/dashboardAPI";
 
 const SET_AUTH_USER_DASHBOARD = "SET_AUTH_USER_DASHBOARD";
 

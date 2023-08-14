@@ -3,21 +3,21 @@ import { connect } from "react-redux";
 import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "./components/HomePage/HomePage.tsx";
-import ProfilePage from "./components/ProfilePage/ProfilePage.tsx";
-import DashboardPageContainer from "./components/DashboardPage/DashboardPageContainer.tsx";
-import AllPages from "./components/AllPages/AllPages.tsx";
-import HeaderContainer from "./components/Header/HeaderContainer.tsx";
-import Footer from "./components/Footer/Footer.tsx";
-import { initialize } from "./redux/app-reducer.tsx";
-import Preloader from "./components/common/Preloader/Preloader.tsx";
-import LoginPageContainer from "./components/LoginPage/LoginPageContainer.tsx";
-import LogoutPageContainer from "./components/LogoutPage/LogoutPageContainer.tsx";
-import RegisterPageContainer from "./components/RegisterPage/RegisterPageContainer.tsx";
-import { getAuthUserData } from "./redux/auth-reducer.tsx";
-import PrivateRouteContainer from "./utils/router/PrivateRouteContainer.tsx";
+import HomePage from "./components/HomePage/HomePage";
+import ProfilePage from "./components/ProfilePage/ProfilePage";
+import DashboardPageContainer from "./components/DashboardPage/DashboardPageContainer";
+import AllPages from "./components/AllPages/AllPages";
+import HeaderContainer from "./components/Header/HeaderContainer";
+import Footer from "./components/Footer/Footer";
+import { initialize } from "./redux/app-reducer";
+import Preloader from "./components/common/Preloader/Preloader";
+import LoginPageContainer from "./components/LoginPage/LoginPageContainer";
+import LogoutPageContainer from "./components/LogoutPage/LogoutPageContainer";
+import RegisterPageContainer from "./components/RegisterPage/RegisterPageContainer";
+import { getAuthUserData } from "./redux/auth-reducer";
+import PrivateRouteContainer from "./utils/router/PrivateRouteContainer";
 
-class App extends React.Component {
+class App extends React.Component<any> {
   componentWillMount() {
     this.props.getAuthUserData();
   }

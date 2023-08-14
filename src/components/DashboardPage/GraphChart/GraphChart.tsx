@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./GraphChart.module.css";
 import commonStyles from "../DashboardPage.module.css";
-import GraphChartItem from "./GraphChartItem.tsx";
+import GraphChartItem from "./GraphChartItem";
 
 const data = {
   axis: [50, 40, 30, 20, 10, 0],

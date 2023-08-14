@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import Header from "./Header.tsx";
-import { getAuthUserData } from "../../redux/header-reducer.tsx";
+import Header from "./Header";
+import { getAuthUserData } from "../../redux/header-reducer";
 
-class HeaderContainer extends React.Component {
+class HeaderContainer extends React.Component<any> {
   componentDidMount() {
     this.props.getAuthUserData(1);
   }
@@ -15,6 +15,8 @@ class HeaderContainer extends React.Component {
         profileData={this.props.profileData}
         statistics={this.props.statistics}
         newActions={this.props.newActions}
+        ////
+        isAuth={true}
       />
     );
   }

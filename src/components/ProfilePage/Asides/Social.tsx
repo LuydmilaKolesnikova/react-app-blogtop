@@ -13,7 +13,9 @@ const Social = () => {
       <h2 className={styles.title}>SOCIAL SHARING</h2>
       <div className={styles.socialIcons}>
         {socials.map((social, index) => (
-          <NavLink key={index}>
+          <NavLink key={index}
+            ////
+            to={""}>            
             <img className={styles.socialIcon} src={social} alt="" />
           </NavLink>
         ))}

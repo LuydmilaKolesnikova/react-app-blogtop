@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./StatisticsArea.module.css";
-import StatisticsInfoBlock from "./StatisticsInfoBlock.tsx";
+import StatisticsInfoBlock from "./StatisticsInfoBlock";
 
 const data = [
   { title: "Posts", name: "posts" },

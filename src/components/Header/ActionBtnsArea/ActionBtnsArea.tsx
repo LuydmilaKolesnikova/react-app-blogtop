@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import styles from "./ActionBtnsArea.module.css";
-import { FollowfeedIcon } from "../../SVG-icons/SVG-icons.tsx";
-import { MessagesIcon } from "../../SVG-icons/SVG-icons.tsx";
-import { NotificationsIcon } from "../../SVG-icons/SVG-icons.tsx";
-import ActionBtn from "./ActionBtn.tsx";
-import FollowfeedDropdown from "./ActionDropdown/FollowfeedDropdown.tsx";
-import MessagesDropdown from "./ActionDropdown/MessagesDropdown.tsx";
-import NotificationsDropdown from "./ActionDropdown/NotificationsDropdown.tsx";
+import { FollowfeedIcon } from "../../SVG-icons/SVG-icons";
+import { MessagesIcon } from "../../SVG-icons/SVG-icons";
+import { NotificationsIcon } from "../../SVG-icons/SVG-icons";
+import ActionBtn from "./ActionBtn";
+import FollowfeedDropdown from "./ActionDropdown/FollowfeedDropdown";
+import MessagesDropdown from "./ActionDropdown/MessagesDropdown";
+import NotificationsDropdown from "./ActionDropdown/NotificationsDropdown";
 
 const data = [
   {

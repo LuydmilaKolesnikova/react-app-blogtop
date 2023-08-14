@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Footer.module.css";
-import FooterBlock from "./FooterBlock.tsx";
+import FooterBlock from "./FooterBlock";
 import avatar from "../../images/avatars/avatar4.jpg";
 
 const data = [

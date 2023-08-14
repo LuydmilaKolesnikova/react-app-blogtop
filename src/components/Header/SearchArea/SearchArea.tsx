@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./SearchArea.module.css";
-import { SearchIcon } from "../../SVG-icons/SVG-icons.tsx";
+import { SearchIcon } from "../../SVG-icons/SVG-icons";
 
 const SearchArea = () => {
   let [mobileSearchInputVisible, setMobileSearchInputVisible] = useState(false);

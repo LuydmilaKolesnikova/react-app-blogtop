@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Asides.module.css";
-import Submisstions from "./Submisstions.tsx";
-import Images from "./Images.tsx";
+import Submisstions from "./Submisstions";
+import Images from "./Images";
 
 const RightAside = () => {
   return (

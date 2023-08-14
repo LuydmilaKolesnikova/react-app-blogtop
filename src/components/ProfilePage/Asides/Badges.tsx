@@ -26,7 +26,9 @@ const Badges = () => {
       <h2 className={styles.title}>BADGES</h2>
       <div className={styles.badgesIcons}>
         {badges.map((badge, index) => (
-          <NavLink key={index} className={styles.badgeItem}>
+          <NavLink key={index} className={styles.badgeItem}
+            ////
+            to={""}>
             <img className={styles.badgeIcon} src={badge.badge} alt="" />
             {badge.count > 0 && (
               <p className={styles.badgeCount}>{badge.count}</p>

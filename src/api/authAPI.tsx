@@ -1,4 +1,4 @@
-import { instance } from "./instanceAPI.tsx";
+import { instance } from "./instanceAPI";
 
 export const authAPI = {
   me() {

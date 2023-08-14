@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import LoginPage from "./LoginPage.tsx";
-import { login } from "../../redux/auth-reducer.tsx";
+import LoginPage from "./LoginPage";
+import { login } from "../../redux/auth-reducer";
 
-class LoginPageContainer extends React.Component {
+class LoginPageContainer extends React.Component<any> {
   render() {
     return (
       <LoginPage

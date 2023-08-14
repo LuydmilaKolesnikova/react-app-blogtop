@@ -5,7 +5,7 @@ import avatar2 from "../../../images/submisstions/avatar2.png";
 import avatar3 from "../../../images/submisstions/avatar3.png";
 import avatar4 from "../../../images/submisstions/avatar4.png";
 import avatar5 from "../../../images/submisstions/avatar5.png";
-import SubmisstionItem from "./SubmisstionItem.tsx";
+import SubmisstionItem from "./SubmisstionItem";
 
 const data = [
   {

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./PostProgress.module.css";
 import commonStyles from "../DashboardPage.module.css";
-import PostProgressItem from "./PostProgressItem.tsx";
+import PostProgressItem from "./PostProgressItem";
 
 const PostProgress = ({ postProgress }) => {
   return (

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import styles from "./MyPosts.module.css";
-import Post from "./Post.tsx";
+import Post from "./Post";
 import photo1 from "../../../images/postsPhotos/photo1.png";
 import photo2 from "../../../images/postsPhotos/photo2.png";
 import photo3 from "../../../images/postsPhotos/photo3.png";
 import photo4 from "../../../images/postsPhotos/photo4.png";
 import photo5 from "../../../images/postsPhotos/photo5.png";
-import Paginator from "./Paginator.tsx";
+import Paginator from "./Paginator";
 
 const data = [
   {

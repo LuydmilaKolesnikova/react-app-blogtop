@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./ProfilePage.module.css";
-import LeftAside from "./Asides/LeftAside.tsx";
-import RightAside from "./Asides/RightAside.tsx";
-import MyPosts from "./MyPosts/MyPosts.tsx";
+import LeftAside from "./Asides/LeftAside";
+import RightAside from "./Asides/RightAside";
+import MyPosts from "./MyPosts/MyPosts";
 
 const ProfilePage = () => {
   return (

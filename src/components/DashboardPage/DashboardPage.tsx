@@ -1,14 +1,14 @@
 import React from "react";
 import styles from "./DashboardPage.module.css";
-import Comments from "./Comments/Comments.tsx";
-import GraphChart from "./GraphChart/GraphChart.tsx";
-import LineGraph from "./LineGraph/LineGraph.tsx";
-import PieChart from "./PieChart/PieChart.tsx";
-import PostProgress from "./PostProgress/PostProgress.tsx";
-import PostViews from "./PostViews/PostViews.tsx";
-import ProfileViews from "./ProfileViews/ProfileViews.tsx";
-import Upvotes from "./Upvotes/Upvotes.tsx";
-import UserSignup from "./UserSignup/UserSignup.tsx";
+import Comments from "./Comments/Comments";
+import GraphChart from "./GraphChart/GraphChart";
+import LineGraph from "./LineGraph/LineGraph";
+import PieChart from "./PieChart/PieChart";
+import PostProgress from "./PostProgress/PostProgress";
+import PostViews from "./PostViews/PostViews";
+import ProfileViews from "./ProfileViews/ProfileViews";
+import Upvotes from "./Upvotes/Upvotes";
+import UserSignup from "./UserSignup/UserSignup";
 
 const DashboardPage = ({ dashboard }) => {
   //debugger;

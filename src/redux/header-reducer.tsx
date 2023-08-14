@@ -1,4 +1,4 @@
-import { headerAPI } from "../api/headerAPI.tsx";
+import { headerAPI } from "../api/headerAPI";
 
 const SET_AUTH_USER_DATA = "SET_AUTH_USER_DATA";
 

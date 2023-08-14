@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styles from "./Header.module.css";
 import logo from "../../images/logo.jpg";
-import ProfileMenu from "./ProfileMenu/ProfileMenu.tsx";
-import MainMenu from "./MainMenu/MainMenu.tsx";
-import ActionBtnsArea from "./ActionBtnsArea/ActionBtnsArea.tsx";
+import ProfileMenu from "./ProfileMenu/ProfileMenu";
+import MainMenu from "./MainMenu/MainMenu";
+import ActionBtnsArea from "./ActionBtnsArea/ActionBtnsArea";
 import profileIcon from "../../images/profile-icon.jpg";
-import SearchArea from "./SearchArea/SearchArea.tsx";
-import StatisticsArea from "./StatisticsArea/StatisticsArea.tsx";
-import LoginLink from "./LoginLink/LoginLink.tsx";
+import SearchArea from "./SearchArea/SearchArea";
+import StatisticsArea from "./StatisticsArea/StatisticsArea";
+import LoginLink from "./LoginLink/LoginLink";
 
 const Header = ({ profileData, statistics, newActions, isAuth }) => {
   let [btnAddPostHover, setBtnAddPostHover] = useState(false);

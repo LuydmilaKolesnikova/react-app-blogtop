@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./MainMenu.module.css";
-import MainMenuLink from "./MainMenuLink.tsx";
-import { MobileMainMenuIcon } from "../../SVG-icons/SVG-icons.tsx";
+import MainMenuLink from "./MainMenuLink";
+import { MobileMainMenuIcon } from "../../SVG-icons/SVG-icons";
 
 const data = [
   {

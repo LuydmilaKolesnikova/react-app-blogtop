@@ -1,8 +1,8 @@
 import { combineReducers, legacy_createStore, applyMiddleware } from "redux";
-import headerReducer from "./header-reducer.tsx";
-import dashboardReducer from "./dashboard-reducer.tsx";
-import authReducer from "./auth-reducer.tsx";
-import appReducer from "./app-reducer.tsx";
+import headerReducer from "./header-reducer";
+import dashboardReducer from "./dashboard-reducer";
+import authReducer from "./auth-reducer";
+import appReducer from "./app-reducer";
 /* import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
@@ -26,6 +26,6 @@ let reducers = combineReducers({
 
 let store = legacy_createStore(reducers, applyMiddleware(thunk));
 
-window.store = store;
+(window as any).store = store;
 
 export default store;

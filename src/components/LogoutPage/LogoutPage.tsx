@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import styles from "./LogoutPage.module.css";
-import classnames from "classnames";
+ import classnames from "classnames";
 import { NavLink, Navigate } from "react-router-dom";
-import LocationContext from "../../utils/context/LocationProvider.tsx";
+import LocationContext from "../../utils/context/LocationProvider";
 
 const LogoutPage = ({ logout, isAuth }) => {
-  const { location, setLocation } = useContext(LocationContext);
+  ///
+  const { location } = useContext(LocationContext);
 
   return isAuth ? (
     <div className={styles.wrapper}>

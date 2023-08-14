@@ -136,7 +136,6 @@ const RegisterPage = ({ registering, isRegistrationSuccess }) => {
 
               <button
                 className={styles.submitBtn}
-                type=""
                 onClick={() => onSubmit}
               >
                 Register

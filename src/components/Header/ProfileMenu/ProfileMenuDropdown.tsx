@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./ProfileMenu.module.css";
-import ProfileMenuLink from "./ProfileMenuLink.tsx";
+import ProfileMenuLink from "./ProfileMenuLink";
 import {
   MyProfileIcon,
   SavedArticlesIcon,
@@ -10,7 +10,7 @@ import {
   PrivacyPolicyIcon,
   FAQIcon,
   LogOutIcon,
-} from "../../SVG-icons/SVG-icons.tsx";
+} from "../../SVG-icons/SVG-icons";
 
 const data = [
   { icon: <MyProfileIcon />, text: "My profile", path: "my-profile" },
