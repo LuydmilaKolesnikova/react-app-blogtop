@@ -84,3 +84,15 @@
   text-decoration: underline;
   margin-bottom: 20px;
 }
+
+.form {
+  border-color: green;;
+}
+
+.errorLabel {
+  border-color: green;;
+}
+
+.errorLogin {
+  border-color: green;;
+}
