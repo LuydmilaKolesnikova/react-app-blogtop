@@ -50,44 +50,42 @@ export const getAuthUserData = () => {
       const response = await authAPI.me();
       let { id, email, login } = response.data;
       dispatch(setAuthUserData(id, email, login, id ? true : false));
-    } catch (e) {}
+    } catch (e) {
+      alert("No response from server");
+    }
   };
 };
 
 export const login = (email, password) => {
   return async (dispatch) => {
     try {
-      const response = await authAPI.login(email, password);
+      await authAPI.login(email, password);
       dispatch(getAuthUserData());
-    } catch (e) {}
-    //if (response.data.isLogin) {
-
-    //} /* else {
-    //dispatch(stopSubmit("login", { _error: response.messages }));
-    //} */
+    } catch (e) {
+      alert("No response from server");
+    }
   };
 };
 
 export const registering = (login, email, password) => {
   return async (dispatch) => {
     try {
-      const response = await authAPI.registering(login, email, password);
+      await authAPI.registering(login, email, password);
       dispatch(registrationSuccess(true));
-    } catch (e) {}
-    //if (response.data.isLogin) {
-
-    //} /* else {
-    //dispatch(stopSubmit("login", { _error: response.messages }));
-    //} */
+    } catch (e) {
+      alert("No response from server");
+    }
   };
 };
 
 export const logout = () => {
   return async (dispatch) => {
-    const response = await authAPI.logout();
-    //if (response.resultCode === 0) {
-    dispatch(setAuthUserData(null, null, null, false));
-    //}
+    try {
+      await authAPI.logout();
+      dispatch(setAuthUserData(null, null, null, false));
+    } catch (e) {
+      alert("No response from server");
+    }
   };
 };
 

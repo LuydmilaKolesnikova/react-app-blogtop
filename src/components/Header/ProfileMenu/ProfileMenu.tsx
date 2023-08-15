@@ -7,10 +7,10 @@ import { useLocation } from "react-router-dom";
 
 const ProfileMenu = () => {
   let [profileMenuVisible, setProfileMenuVisible] = useState(false);
-  const { location, setLocation} = useContext(LocationContext);
+  const { setLocation } = useContext(LocationContext);
   const loc = useLocation();
 
-  const setLocation1 = () => {
+  const setLocationPath = () => {
     setLocation(loc.pathname);
   };
 
@@ -23,7 +23,7 @@ const ProfileMenu = () => {
       onMouseOut={() => {
         setProfileMenuVisible(false);
       }}
-      onMouseDown={() => setLocation1()}
+      onMouseDown={() => setLocationPath()}
     >
       <img src={profileIcon} alt="" />
       {profileMenuVisible && <ProfileMenuDropdown />}

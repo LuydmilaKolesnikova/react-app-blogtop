@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
@@ -9,8 +8,6 @@ import DashboardPageContainer from "./components/DashboardPage/DashboardPageCont
 import AllPages from "./components/AllPages/AllPages";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Footer from "./components/Footer/Footer";
-import { initialize } from "./redux/app-reducer";
-import Preloader from "./components/common/Preloader/Preloader";
 import LoginPageContainer from "./components/LoginPage/LoginPageContainer";
 import LogoutPageContainer from "./components/LogoutPage/LogoutPageContainer";
 import RegisterPageContainer from "./components/RegisterPage/RegisterPageContainer";

@@ -2,7 +2,6 @@ import { instance } from "./instanceAPI";
 
 export const authAPI = {
   me() {
-    //debugger;
     return instance.get(`auth`).then((response) => response);
   },
 

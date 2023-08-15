@@ -11,7 +11,6 @@ import Upvotes from "./Upvotes/Upvotes";
 import UserSignup from "./UserSignup/UserSignup";
 
 const DashboardPage = ({ dashboard }) => {
-  //debugger;
   return (
     <div className={styles.dashboardPage}>
       <div className={styles.container}>

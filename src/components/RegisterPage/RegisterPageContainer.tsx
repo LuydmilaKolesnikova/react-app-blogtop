@@ -8,7 +8,7 @@ class RegisterPageContainer extends React.Component<any> {
     return (
       <RegisterPage
         {...this.props}
-        registering={this.props.register}
+        registering={this.props.registering}
         isRegistrationSuccess={this.props.isRegistrationSuccess}
       />
     );

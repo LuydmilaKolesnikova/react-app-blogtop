@@ -4,7 +4,7 @@ import LocationContext from "../context/LocationProvider";
 import { useContext } from "react";
 
 const PrivateRoute = ({ isAuth }) => {
-  const {location, setLocation} = useContext(LocationContext);
+  const { setLocation } = useContext(LocationContext);
   const loc = useLocation();
   setLocation(loc.pathname);
 
