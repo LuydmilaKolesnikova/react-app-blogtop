@@ -16,11 +16,11 @@ interface SetUserDataAction {
 }
 
 export function setAuthUserData(
-  isAuth: boolean,
   id?: number,
   email?: string,
   login?: string
 ): SetUserDataAction {
+  const isAuth = id ? true : false;
   return {
     type: SET_USER_DATA,
     payload: { id, email, login, isAuth },
@@ -46,9 +46,6 @@ interface InitialState extends PayloadData {
 }
 
 let initialState: InitialState = {
-  id: null,
-  email: null,
-  login: null,
   isAuth: false,
   isRegistrationSuccess: false,
 };
@@ -80,7 +77,7 @@ export function getAuthUserData() {
     try {
       const response = await authAPI.me();
       let { id, email, login } = response.data;
-      dispatch(setAuthUserData(id ? true : false, id, email, login));
+      dispatch(setAuthUserData(id, email, login));
     } catch (e) {
       alert("No response from server");
     }
@@ -113,7 +110,7 @@ export function logout() {
   return async (dispatch) => {
     try {
       await authAPI.logout();
-      dispatch(setAuthUserData(false, null, null, null));
+      dispatch(setAuthUserData(null, null, null));
     } catch (e) {
       alert("No response from server");
     }
