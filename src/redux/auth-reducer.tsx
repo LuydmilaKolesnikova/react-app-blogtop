@@ -75,7 +75,7 @@ const authReducer = (
   }
 };
 
-export const getAuthUserData = () => {
+export function getAuthUserData() {
   return async (dispatch) => {
     try {
       const response = await authAPI.me();
@@ -85,9 +85,9 @@ export const getAuthUserData = () => {
       alert("No response from server");
     }
   };
-};
+}
 
-export const login = (email: string, password: string) => {
+export function login(email: string, password: string) {
   return async (dispatch) => {
     try {
       await authAPI.login(email, password);
@@ -96,9 +96,9 @@ export const login = (email: string, password: string) => {
       alert("No response from server");
     }
   };
-};
+}
 
-export const registering = (login: string, email: string, password: string) => {
+export function registering(login: string, email: string, password: string) {
   return async (dispatch) => {
     try {
       await authAPI.registering(login, email, password);
@@ -107,9 +107,9 @@ export const registering = (login: string, email: string, password: string) => {
       alert("No response from server");
     }
   };
-};
+}
 
-export const logout = () => {
+export function logout() {
   return async (dispatch) => {
     try {
       await authAPI.logout();
@@ -118,6 +118,6 @@ export const logout = () => {
       alert("No response from server");
     }
   };
-};
+}
 
 export default authReducer;
