@@ -3,21 +3,55 @@ import { authAPI } from "../api/authAPI";
 const SET_USER_DATA = "SET_USER_DATA";
 const REGISTRATION_SUCCESS = "REGISTRATION_SUCCESS";
 
-export const setAuthUserData = (id, email, login, isAuth) => {
+type payloadType = {
+  id: null | number;
+  email: null | string;
+  login: null | string;
+  isAuth: boolean;
+};
+
+type SetUserDataActionType = {
+  type: typeof SET_USER_DATA;
+  payload: payloadType;
+};
+
+export const setAuthUserData = (
+  id: null | number,
+  email: null | string,
+  login: null | string,
+  isAuth: boolean
+): SetUserDataActionType => {
   return {
     type: SET_USER_DATA,
     payload: { id, email, login, isAuth },
   };
 };
 
-export const registrationSuccess = (success) => {
+type registrationSuccessActionType = {
+  type: typeof REGISTRATION_SUCCESS;
+  success: boolean;
+};
+
+export const registrationSuccess = (
+  success: boolean
+): registrationSuccessActionType => {
   return {
     type: REGISTRATION_SUCCESS,
     success,
   };
 };
 
-let initialState = {
+let state = {
+  id: null as number | null,
+  email: null as string | null,
+  login: null as string | null,
+  isAuth: null as boolean | null,
+  isRegistrationSuccess: null as boolean | null,
+};
+
+type InitialStateType = typeof state;
+
+let initialState: InitialStateType = {
   id: null,
   email: null,
   login: null,
@@ -25,7 +59,10 @@ let initialState = {
   isRegistrationSuccess: false,
 };
 
-const authReducer = (state = initialState, action) => {
+const authReducer = (
+  state: InitialStateType = initialState,
+  action: SetUserDataActionType | registrationSuccessActionType
+): InitialStateType => {
   switch (action.type) {
     case SET_USER_DATA: {
       return {
@@ -45,7 +82,7 @@ const authReducer = (state = initialState, action) => {
 };
 
 export const getAuthUserData = () => {
-  return async (dispatch) => {
+  return async (dispatch: any) => {
     try {
       const response = await authAPI.me();
       let { id, email, login } = response.data;
@@ -56,8 +93,8 @@ export const getAuthUserData = () => {
   };
 };
 
-export const login = (email, password) => {
-  return async (dispatch) => {
+export const login = (email: string, password: string) => {
+  return async (dispatch: any) => {
     try {
       await authAPI.login(email, password);
       dispatch(getAuthUserData());
@@ -67,8 +104,8 @@ export const login = (email, password) => {
   };
 };
 
-export const registering = (login, email, password) => {
-  return async (dispatch) => {
+export const registering = (login: string, email: string, password: string) => {
+  return async (dispatch: any) => {
     try {
       await authAPI.registering(login, email, password);
       dispatch(registrationSuccess(true));
@@ -79,7 +116,7 @@ export const registering = (login, email, password) => {
 };
 
 export const logout = () => {
-  return async (dispatch) => {
+  return async (dispatch: any) => {
     try {
       await authAPI.logout();
       dispatch(setAuthUserData(null, null, null, false));
