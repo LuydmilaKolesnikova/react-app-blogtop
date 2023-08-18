@@ -17,30 +17,28 @@ export function setAuthUserData(
 }
 
 interface ProfileData {
-  profileData: {
-    name?: string;
-    address?: string;
-    photo?: string;
-  };
+  name?: string;
+  address?: string;
+  photo?: string;
 }
 
 interface Statistics {
-  statistics: {
-    posts?: number;
-    followers?: number;
-    following?: number;
-  };
+  posts?: number;
+  followers?: number;
+  following?: number;
 }
 
 interface NewActions {
-  newActions: {
-    followfeed?: number;
-    messages?: number;
-    notifications?: number;
-  };
+  followfeed?: number;
+  messages?: number;
+  notifications?: number;
 }
 
-interface InitialState extends ProfileData, Statistics, NewActions {}
+interface InitialState {
+  profileData: ProfileData;
+  statistics: Statistics;
+  newActions: NewActions;
+}
 
 let initialState: InitialState = {
   profileData: {},
@@ -66,8 +64,10 @@ const headerReducer = (
   }
 };
 
+type DispatchCallback = (param: SetAuthUserDataAction) => InitialState;
+
 export const getAuthUserData = (id: number) => {
-  return async (dispatch) => {
+  return async (dispatch: DispatchCallback) => {
     try {
       const response = await headerAPI.getAuthUserData(id);
       dispatch(setAuthUserData(response.data));
