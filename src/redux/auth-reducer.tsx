@@ -7,7 +7,6 @@ interface PayloadData {
   id?: number;
   email?: string;
   login?: string;
-  isAuth: boolean;
 }
 
 interface SetUserDataAction {
@@ -20,10 +19,9 @@ export function setAuthUserData(
   email?: string,
   login?: string
 ): SetUserDataAction {
-  const isAuth = id ? true : false;
   return {
     type: SET_USER_DATA,
-    payload: { id, email, login, isAuth },
+    payload: { id, email, login },
   };
 }
 
@@ -42,6 +40,7 @@ export function registrationSuccess(
 }
 
 interface InitialState extends PayloadData {
+  isAuth?: boolean;
   isRegistrationSuccess?: boolean;
 }
 
@@ -59,6 +58,7 @@ const authReducer = (
       return {
         ...state,
         ...action.payload,
+        isAuth: action.payload.id ? true : false,
       };
     }
     case REGISTRATION_SUCCESS: {

@@ -1,21 +1,23 @@
 import { instance } from "./instanceAPI";
 
+type MeResponse = { data?: { id: number; email: string; login: string } };
+
 export const authAPI = {
-  me(): any {
-    return instance.get(`auth`).then((response) => response);
+  me(): Promise<MeResponse> {
+    return instance.get(`auth`).then();
   },
 
-  login(email: string, password: string): any {
+  login(email: string, password: string): unknown {
     return instance
       .post(`auth`, {
         id: 1,
         email,
         password,
       })
-      .then((response) => response);
+      .then();
   },
 
-  registering(login: string, email: string, password: string): any {
+  registering(login: string, email: string, password: string): unknown {
     return instance
       .post(`register`, {
         id: 12,
@@ -23,16 +25,16 @@ export const authAPI = {
         email,
         password,
       })
-      .then((response) => response);
+      .then();
   },
 
-  logout(): any {
+  logout(): unknown {
     return instance
       .post(`auth`, {
         id: null,
         email: null,
         password: null,
       })
-      .then((response) => response);
+      .then();
   },
 };
