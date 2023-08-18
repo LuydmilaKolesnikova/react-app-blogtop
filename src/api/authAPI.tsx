@@ -9,8 +9,8 @@ export const authAPI = {
     return instance
       .post(`auth`, {
         id: 1,
-        email: email,
-        password: password,
+        email,
+        password,
       })
       .then((response) => response);
   },
@@ -19,9 +19,9 @@ export const authAPI = {
     return instance
       .post(`register`, {
         id: 12,
-        login: login,
-        email: email,
-        password: password,
+        login,
+        email,
+        password,
       })
       .then((response) => response);
   },
