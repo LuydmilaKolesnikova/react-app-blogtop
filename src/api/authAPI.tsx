@@ -1,11 +1,11 @@
 import { instance } from "./instanceAPI";
 
 export const authAPI = {
-  me() {
+  me(): any {
     return instance.get(`auth`).then((response) => response);
   },
 
-  login(email, password) {
+  login(email: string, password: string): any {
     return instance
       .post(`auth`, {
         id: 1,
@@ -15,7 +15,7 @@ export const authAPI = {
       .then((response) => response);
   },
 
-  registering(login, email, password) {
+  registering(login: string, email: string, password: string): any {
     return instance
       .post(`register`, {
         id: 12,
@@ -26,7 +26,7 @@ export const authAPI = {
       .then((response) => response);
   },
 
-  logout() {
+  logout(): any {
     return instance
       .post(`auth`, {
         id: null,
