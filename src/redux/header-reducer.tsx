@@ -2,37 +2,63 @@ import { headerAPI } from "../api/headerAPI";
 
 const SET_AUTH_USER_DATA = "SET_AUTH_USER_DATA";
 
-export const setAuthUserData = (data) => {
+interface SetAuthUserDataAction {
+  type: typeof SET_AUTH_USER_DATA;
+  authUserData: InitialState;
+}
+
+export function setAuthUserData(
+  authUserData: InitialState
+): SetAuthUserDataAction {
   return {
     type: SET_AUTH_USER_DATA,
-    profileData: data.profileData,
-    statistics: data.statistics,
-    newActions: data.newActions,
+    authUserData,
   };
-};
+}
 
-let initialState = {
+interface ProfileData {
   profileData: {
-    name: "Luydmila",
-    address: "Kolomna, Russia",
-    photo: "",
-  },
-  statistics: [{ posts: 10 }, { followers: 125 }, { following: 54 }],
+    name?: string;
+    address?: string;
+    photo?: string;
+  };
+}
+
+interface Statistics {
+  statistics: {
+    posts?: number;
+    followers?: number;
+    following?: number;
+  };
+}
+
+interface NewActions {
   newActions: {
-    followfeed: null,
-    messages: null,
-    notifications: null,
-  },
+    followfeed?: number;
+    messages?: number;
+    notifications?: number;
+  };
+}
+
+interface InitialState extends ProfileData, Statistics, NewActions {}
+
+let initialState: InitialState = {
+  profileData: {},
+  statistics: {},
+  newActions: {},
 };
 
-const headerReducer = (state = initialState, action) => {
+const headerReducer = (
+  state: InitialState = initialState,
+  action: SetAuthUserDataAction
+) => {
   switch (action.type) {
     case SET_AUTH_USER_DATA: {
       return {
         ...state,
-        profileData: action.profileData,
-        statistics: action.statistics,
-        newActions: action.newActions,
+        profileData: action.authUserData.profileData,
+        statistics: action.authUserData.statistics,
+        newActions: action.authUserData.newActions,
       };
     }
     default:
@@ -40,7 +66,7 @@ const headerReducer = (state = initialState, action) => {
   }
 };
 
-export const getAuthUserData = (id) => {
+export const getAuthUserData = (id: number) => {
   return async (dispatch) => {
     try {
       const response = await headerAPI.getAuthUserData(id);
