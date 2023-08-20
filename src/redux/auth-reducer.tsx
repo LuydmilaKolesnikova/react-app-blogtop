@@ -3,34 +3,62 @@ import { authAPI } from "../api/authAPI";
 const SET_USER_DATA = "SET_USER_DATA";
 const REGISTRATION_SUCCESS = "REGISTRATION_SUCCESS";
 
-export const setAuthUserData = (id, email, login, isAuth) => {
+interface PayloadData {
+  id?: number;
+  email?: string;
+  login?: string;
+}
+
+interface SetUserDataAction {
+  type: typeof SET_USER_DATA;
+  payload: PayloadData;
+}
+
+export function setAuthUserData(
+  id?: number,
+  email?: string,
+  login?: string
+): SetUserDataAction {
   return {
     type: SET_USER_DATA,
-    payload: { id, email, login, isAuth },
+    payload: { id, email, login },
   };
+}
+
+type RegistrationSuccessAction = {
+  type: typeof REGISTRATION_SUCCESS;
+  success: boolean;
 };
 
-export const registrationSuccess = (success) => {
+export function registrationSuccess(
+  success: boolean
+): RegistrationSuccessAction {
   return {
     type: REGISTRATION_SUCCESS,
     success,
   };
-};
+}
 
-let initialState = {
-  id: null,
-  email: null,
-  login: null,
+interface InitialState extends PayloadData {
+  isAuth?: boolean;
+  isRegistrationSuccess?: boolean;
+}
+
+let initialState: InitialState = {
   isAuth: false,
   isRegistrationSuccess: false,
 };
 
-const authReducer = (state = initialState, action) => {
+const authReducer = (
+  state: InitialState = initialState,
+  action: SetUserDataAction | RegistrationSuccessAction
+): InitialState => {
   switch (action.type) {
     case SET_USER_DATA: {
       return {
         ...state,
         ...action.payload,
+        isAuth: action.payload.id ? true : false,
       };
     }
     case REGISTRATION_SUCCESS: {
@@ -44,19 +72,19 @@ const authReducer = (state = initialState, action) => {
   }
 };
 
-export const getAuthUserData = () => {
+export function getAuthUserData() {
   return async (dispatch) => {
     try {
       const response = await authAPI.me();
       let { id, email, login } = response.data;
-      dispatch(setAuthUserData(id, email, login, id ? true : false));
+      dispatch(setAuthUserData(id, email, login));
     } catch (e) {
       alert("No response from server");
     }
   };
-};
+}
 
-export const login = (email, password) => {
+export function login(email: string, password: string) {
   return async (dispatch) => {
     try {
       await authAPI.login(email, password);
@@ -65,9 +93,9 @@ export const login = (email, password) => {
       alert("No response from server");
     }
   };
-};
+}
 
-export const registering = (login, email, password) => {
+export function registering(login: string, email: string, password: string) {
   return async (dispatch) => {
     try {
       await authAPI.registering(login, email, password);
@@ -76,17 +104,17 @@ export const registering = (login, email, password) => {
       alert("No response from server");
     }
   };
-};
+}
 
-export const logout = () => {
+export function logout() {
   return async (dispatch) => {
     try {
       await authAPI.logout();
-      dispatch(setAuthUserData(null, null, null, false));
+      dispatch(setAuthUserData(null, null, null));
     } catch (e) {
       alert("No response from server");
     }
   };
-};
+}
 
 export default authReducer;

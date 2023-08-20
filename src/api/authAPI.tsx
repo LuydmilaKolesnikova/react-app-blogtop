@@ -1,38 +1,40 @@
 import { instance } from "./instanceAPI";
 
+type MeResponse = { data?: { id: number; email: string; login: string } };
+
 export const authAPI = {
-  me() {
-    return instance.get(`auth`).then((response) => response);
+  me(): Promise<MeResponse> {
+    return instance.get(`auth`).then();
   },
 
-  login(email, password) {
+  login(email: string, password: string): unknown {
     return instance
       .post(`auth`, {
         id: 1,
-        email: email,
-        password: password,
+        email,
+        password,
       })
-      .then((response) => response);
+      .then();
   },
 
-  registering(login, email, password) {
+  registering(login: string, email: string, password: string): unknown {
     return instance
       .post(`register`, {
         id: 12,
-        login: login,
-        email: email,
-        password: password,
+        login,
+        email,
+        password,
       })
-      .then((response) => response);
+      .then();
   },
 
-  logout() {
+  logout(): unknown {
     return instance
       .post(`auth`, {
         id: null,
         email: null,
         password: null,
       })
-      .then((response) => response);
+      .then();
   },
 };
