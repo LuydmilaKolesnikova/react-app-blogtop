@@ -1,7 +1,11 @@
 import { instance } from "./instanceAPI";
 
+interface dashboardResponse { data: {dashboard:{} } };
+
+
 export const dashboardAPI = {
-  getAuthUserDashboard(id) {
-    return instance.get(`users/${id}`).then((response) => response);
+
+  getAuthUserDashboard(id:number) : Promise<dashboardResponse> {
+    return instance.get(`users/${id}`);
   },
 };

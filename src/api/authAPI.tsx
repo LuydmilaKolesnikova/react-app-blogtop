@@ -1,10 +1,10 @@
 import { instance } from "./instanceAPI";
 
-type MeResponse = { data?: { id: number; email: string; login: string } };
+interface MeResponse { data?: { id: number | null; email: string | null; login: string | null } };
 
 export const authAPI = {
   me(): Promise<MeResponse> {
-    return instance.get(`auth`).then();
+    return instance.get(`auth`);
   },
 
   login(email: string, password: string): unknown {
@@ -13,8 +13,7 @@ export const authAPI = {
         id: 1,
         email,
         password,
-      })
-      .then();
+      });
   },
 
   registering(login: string, email: string, password: string): unknown {
@@ -24,8 +23,7 @@ export const authAPI = {
         login,
         email,
         password,
-      })
-      .then();
+      });
   },
 
   logout(): unknown {
@@ -34,7 +32,6 @@ export const authAPI = {
         id: null,
         email: null,
         password: null,
-      })
-      .then();
+      });
   },
 };
