@@ -1,6 +1,6 @@
 import { instance } from "./instanceAPI";
 
-type dashboardResponse = { data: {dashboard:{} } };
+interface dashboardResponse { data: {dashboard:{} } };
 
 
 export const dashboardAPI = {

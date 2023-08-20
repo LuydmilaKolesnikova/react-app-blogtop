@@ -1,6 +1,6 @@
 import { instance } from "./instanceAPI";
 
-type MeResponse = { data?: { id: number; email: string; login: string } };
+interface MeResponse { data?: { id: number | null; email: string | null; login: string | null } };
 
 export const authAPI = {
   me(): Promise<MeResponse> {
