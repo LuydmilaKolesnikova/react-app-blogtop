@@ -14,7 +14,11 @@ import RegisterPageContainer from "./components/RegisterPage/RegisterPageContain
 import { getAuthUserData } from "./redux/auth-reducer";
 import PrivateRouteContainer from "./utils/router/PrivateRouteContainer";
 
-class App extends React.Component<any> {
+interface Props {
+  getAuthUserData: () => void;
+}
+
+class App extends React.Component<Props> {
   componentWillMount() {
     this.props.getAuthUserData();
   }
