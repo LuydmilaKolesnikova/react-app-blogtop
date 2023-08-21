@@ -5,6 +5,11 @@ import { useForm } from "react-hook-form";
 import LocationContext from "../../utils/context/LocationProvider";
 import { NavLink, Navigate } from "react-router-dom";
 
+interface FormState {
+  email: string;
+  password: string;
+}
+
 const LoginPage = ({ login, isAuth }) => {
   const { location } = useContext(LocationContext);
   const [reg, setReg] = useState(false);
@@ -13,7 +18,6 @@ const LoginPage = ({ login, isAuth }) => {
     register,
     handleSubmit,
     formState: { errors },
-    formState,
   } = useForm({
     mode: "onBlur",
     defaultValues: {
@@ -22,7 +26,7 @@ const LoginPage = ({ login, isAuth }) => {
     },
   });
 
-  const onSubmit = (formState) => {
+  const onSubmit = (formState: FormState) => {
     login(formState.email, formState.password);
   };
 

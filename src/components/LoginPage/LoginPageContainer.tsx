@@ -2,8 +2,14 @@ import React from "react";
 import { connect } from "react-redux";
 import LoginPage from "./LoginPage";
 import { login } from "../../redux/auth-reducer";
+import { State } from "../../redux/redux-store";
 
-class LoginPageContainer extends React.Component<any> {
+interface Props {
+  isAuth: boolean;
+  login: (email: string, password: string) => void;
+}
+
+class LoginPageContainer extends React.Component<Props> {
   render() {
     return (
       <LoginPage
@@ -15,12 +21,12 @@ class LoginPageContainer extends React.Component<any> {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: State) => ({
   isAuth: state.auth.isAuth,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  login: (email, password) => dispatch(login(email, password)),
+  login: (email: string, password: string) => dispatch(login(email, password)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPageContainer);
