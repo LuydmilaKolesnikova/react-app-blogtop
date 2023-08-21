@@ -16,19 +16,19 @@ export function setAuthUserData(
   };
 }
 
-interface ProfileData {
+export interface ProfileData {
   name?: string;
   address?: string;
   photo?: string;
 }
 
-interface Statistics {
+export interface Statistics {
   posts?: number;
   followers?: number;
   following?: number;
 }
 
-interface NewActions {
+export interface NewActions {
   followfeed?: number;
   messages?: number;
   notifications?: number;

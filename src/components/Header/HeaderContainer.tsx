@@ -2,8 +2,22 @@ import React from "react";
 import { connect } from "react-redux";
 import Header from "./Header";
 import { getAuthUserData } from "../../redux/header-reducer";
+import {
+  ProfileData,
+  Statistics,
+  NewActions,
+} from "../../redux/header-reducer";
+import { State } from "../../redux/redux-store";
 
-class HeaderContainer extends React.Component<any> {
+interface Props {
+  profileData: ProfileData;
+  statistics: Statistics;
+  newActions: NewActions;
+  isAuth: boolean;
+  getAuthUserData: (id: number) => void;
+}
+
+class HeaderContainer extends React.Component<Props> {
   componentDidMount() {
     this.props.getAuthUserData(1);
   }
@@ -21,7 +35,7 @@ class HeaderContainer extends React.Component<any> {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: State) => ({
   profileData: state.header.profileData,
   statistics: state.header.statistics,
   newActions: state.header.newActions,
@@ -29,7 +43,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getAuthUserData: (id) => dispatch(getAuthUserData(id)),
+  getAuthUserData: (id: number) => dispatch(getAuthUserData(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);
