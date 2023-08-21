@@ -140,7 +140,11 @@ const RegisterPage = ({ registering, isRegistrationSuccess }) => {
                 )}
               </div>
 
-              <button className={styles.submitBtn} onClick={() => onSubmit}>
+              <button
+                className={styles.submitBtn}
+                type="submit"
+                onClick={() => onSubmit}
+              >
                 Register
               </button>
             </div>
