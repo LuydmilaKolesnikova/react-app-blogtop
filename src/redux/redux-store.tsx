@@ -3,6 +3,9 @@ import headerReducer from "./header-reducer";
 import dashboardReducer from "./dashboard-reducer";
 import authReducer from "./auth-reducer";
 import thunk from "redux-thunk";
+import { AuthInitialState } from "./auth-reducer";
+import { DashboardInitialState } from "./dashboard-reducer";
+import { HeaderInitialState } from "./header-reducer";
 
 let reducers = combineReducers({
   header: headerReducer,
@@ -15,9 +18,9 @@ let store = legacy_createStore(reducers, applyMiddleware(thunk));
 (window as any).store = store;
 
 export interface State {
-  auth: {};
-  header: {};
-  dashboard: { dashboard: {} };
+  auth: AuthInitialState;
+  header: HeaderInitialState;
+  dashboard: DashboardInitialState;
 }
 
 export default store;

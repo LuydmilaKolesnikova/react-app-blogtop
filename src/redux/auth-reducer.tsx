@@ -39,20 +39,20 @@ export function registrationSuccess(
   };
 }
 
-interface InitialState extends PayloadData {
+export interface AuthInitialState extends PayloadData {
   isAuth?: boolean;
   isRegistrationSuccess?: boolean;
 }
 
-let initialState: InitialState = {
+let initialState: AuthInitialState = {
   isAuth: false,
   isRegistrationSuccess: false,
 };
 
 const authReducer = (
-  state: InitialState = initialState,
+  state: AuthInitialState = initialState,
   action: SetUserDataAction | RegistrationSuccessAction
-): InitialState => {
+): AuthInitialState => {
   switch (action.type) {
     case SET_USER_DATA: {
       return {

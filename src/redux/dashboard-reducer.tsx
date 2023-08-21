@@ -4,11 +4,11 @@ const SET_AUTH_USER_DASHBOARD = "SET_AUTH_USER_DASHBOARD";
 
 interface SetAuthUserDashboardAction {
   type: typeof SET_AUTH_USER_DASHBOARD;
-  dashboardData: InitialState;
+  dashboardData: DashboardInitialState;
 }
 
 export function setAuthUserDashboard(
-  dashboardData: InitialState
+  dashboardData: DashboardInitialState
 ): SetAuthUserDashboardAction {
   return {
     type: SET_AUTH_USER_DASHBOARD,
@@ -16,7 +16,7 @@ export function setAuthUserDashboard(
   };
 }
 
-interface InitialState {
+export interface DashboardInitialState {
   dashboard: {
     postViews?: { number: number; procent: number };
     upvotes?: { number: number; procent: number };
@@ -50,14 +50,14 @@ interface InitialState {
   };
 }
 
-let initialState: InitialState = {
+let initialState: DashboardInitialState = {
   dashboard: {},
 };
 
 const dashboardReducer = (
-  state: InitialState = initialState,
+  state: DashboardInitialState = initialState,
   action: SetAuthUserDashboardAction
-): InitialState => {
+): DashboardInitialState => {
   switch (action.type) {
     case SET_AUTH_USER_DASHBOARD: {
       return {
