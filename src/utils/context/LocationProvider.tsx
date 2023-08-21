@@ -1,11 +1,9 @@
 import { createContext, useState } from "react";
 
-
 type LocationContextType = {
-  location: string
-  setLocation: (string) => void;
+  location: string;
+  setLocation: (location: string) => void;
 };
-
 
 const LocationContext = createContext<LocationContextType>(null);
 
