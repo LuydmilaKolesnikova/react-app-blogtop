@@ -2,8 +2,14 @@ import React from "react";
 import { connect } from "react-redux";
 import LogoutPage from "./LogoutPage";
 import { logout } from "../../redux/auth-reducer";
+import { State } from "../../redux/redux-store";
 
-class LogoutPageContainer extends React.Component<any> {
+interface Props {
+  isAuth: boolean;
+  logout: () => void;
+}
+
+class LogoutPageContainer extends React.Component<Props> {
   render() {
     return (
       <LogoutPage
@@ -15,7 +21,7 @@ class LogoutPageContainer extends React.Component<any> {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: State) => ({
   isAuth: state.auth.isAuth,
 });
 
