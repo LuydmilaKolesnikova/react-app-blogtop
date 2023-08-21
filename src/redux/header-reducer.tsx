@@ -4,11 +4,11 @@ const SET_AUTH_USER_DATA = "SET_AUTH_USER_DATA";
 
 interface SetAuthUserDataAction {
   type: typeof SET_AUTH_USER_DATA;
-  authUserData: InitialState;
+  authUserData: HeaderInitialState;
 }
 
 export function setAuthUserData(
-  authUserData: InitialState
+  authUserData: HeaderInitialState
 ): SetAuthUserDataAction {
   return {
     type: SET_AUTH_USER_DATA,
@@ -34,20 +34,20 @@ interface NewActions {
   notifications?: number;
 }
 
-interface InitialState {
+export interface HeaderInitialState {
   profileData: ProfileData;
   statistics: Statistics;
   newActions: NewActions;
 }
 
-let initialState: InitialState = {
+let initialState: HeaderInitialState = {
   profileData: {},
   statistics: {},
   newActions: {},
 };
 
 const headerReducer = (
-  state: InitialState = initialState,
+  state: HeaderInitialState = initialState,
   action: SetAuthUserDataAction
 ) => {
   switch (action.type) {
@@ -64,7 +64,7 @@ const headerReducer = (
   }
 };
 
-type DispatchCallback = (param: SetAuthUserDataAction) => InitialState;
+type DispatchCallback = (param: SetAuthUserDataAction) => HeaderInitialState;
 
 export const getAuthUserData = (id: number) => {
   return async (dispatch: DispatchCallback) => {
