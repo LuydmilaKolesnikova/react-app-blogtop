@@ -1,14 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
 import PrivateRoute from "./PrivateRoute";
+import { State } from "../../redux/redux-store";
 
-class PrivateRouteContainer extends React.Component<any> {
+interface Props {
+  isAuth: boolean;
+}
+
+class PrivateRouteContainer extends React.Component<Props> {
   render() {
     return <PrivateRoute {...this.props} isAuth={this.props.isAuth} />;
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: State) => ({
   isAuth: state.auth.isAuth,
 });
 
