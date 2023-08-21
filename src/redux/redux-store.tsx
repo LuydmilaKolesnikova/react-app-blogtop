@@ -14,4 +14,10 @@ let store = legacy_createStore(reducers, applyMiddleware(thunk));
 
 (window as any).store = store;
 
+export interface State {
+  auth: {};
+  header: {};
+  dashboard: { dashboard: {} };
+}
+
 export default store;
