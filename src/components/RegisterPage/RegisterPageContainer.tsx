@@ -2,8 +2,14 @@ import React from "react";
 import { connect } from "react-redux";
 import RegisterPage from "./RegisterPage";
 import { registering } from "../../redux/auth-reducer";
+import { State } from "../../redux/redux-store";
 
-class RegisterPageContainer extends React.Component<any> {
+interface Props {
+  isRegistrationSuccess: boolean;
+  registering: (login: string, email: string, password: string) => void;
+}
+
+class RegisterPageContainer extends React.Component<Props> {
   render() {
     return (
       <RegisterPage
@@ -15,12 +21,12 @@ class RegisterPageContainer extends React.Component<any> {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: State) => ({
   isRegistrationSuccess: state.auth.isRegistrationSuccess,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  registering: (login, email, password) =>
+  registering: (login: string, email: string, password: string) =>
     dispatch(registering(login, email, password)),
 });
 

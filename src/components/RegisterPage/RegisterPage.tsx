@@ -4,12 +4,18 @@ import classnames from "classnames";
 import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 
+interface FormState {
+  login: string;
+  email: string;
+  password: string;
+  repeatPassword: string;
+}
+
 const RegisterPage = ({ registering, isRegistrationSuccess }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    formState,
   } = useForm({
     mode: "onBlur",
     defaultValues: {
@@ -20,7 +26,7 @@ const RegisterPage = ({ registering, isRegistrationSuccess }) => {
     },
   });
 
-  const onSubmit = (formState) => {
+  const onSubmit = (formState: FormState) => {
     registering(formState.login, formState.email, formState.password);
   };
 
@@ -134,10 +140,7 @@ const RegisterPage = ({ registering, isRegistrationSuccess }) => {
                 )}
               </div>
 
-              <button
-                className={styles.submitBtn}
-                onClick={() => onSubmit}
-              >
+              <button className={styles.submitBtn} type="submit">
                 Register
               </button>
             </div>
