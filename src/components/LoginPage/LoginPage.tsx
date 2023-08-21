@@ -85,11 +85,7 @@ const LoginPage = ({ login, isAuth }) => {
                 <div className={styles.error}>{errors.password.message}</div>
               )}
             </div>
-            <button
-              className={styles.submitBtn}
-              type="submit"
-              onClick={() => onSubmit}
-            >
+            <button className={styles.submitBtn} type="submit">
               Login
             </button>
           </div>
