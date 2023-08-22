@@ -1,12 +1,13 @@
-import React from "react";
+import React, { Dispatch } from "react";
 import { connect } from "react-redux";
 import DashboardPage from "./DashboardPage";
 import { getAuthUserDashboard } from "../../redux/dashboard-reducer";
 import { State } from "../../redux/redux-store";
 import { DashboardInitialState } from "../../redux/dashboard-reducer";
 
-interface Props extends DashboardInitialState {
-  getAuthUserDashboard: (id: number) => void;
+export interface Props {
+  dashboard: DashboardInitialState;
+  getAuthUserDashboard: (id: number) => DashboardInitialState;
 }
 
 class DashboardPageContainer extends React.Component<Props> {
@@ -14,20 +15,17 @@ class DashboardPageContainer extends React.Component<Props> {
     this.props.getAuthUserDashboard(1);
   }
 
-  render() {
+  /* render() {
     return <DashboardPage {...this.props} dashboard={this.props.dashboard} />;
-  }
+  } */
 }
 
 const mapStateToProps = (state: State) => ({
-  dashboard: state.dashboard.dashboard,
+  dashboard: state.dashboard,
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch: any) => ({
   getAuthUserDashboard: (id: number) => dispatch(getAuthUserDashboard(id)),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(DashboardPageContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);

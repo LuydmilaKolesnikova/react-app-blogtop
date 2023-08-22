@@ -9,22 +9,28 @@ import PostViews from "./PostViews/PostViews";
 import ProfileViews from "./ProfileViews/ProfileViews";
 import Upvotes from "./Upvotes/Upvotes";
 import UserSignup from "./UserSignup/UserSignup";
+import { DashboardInitialState } from "../../redux/dashboard-reducer";
+import { GraphChartState } from "../../redux/dashboard-reducer";
 
-const DashboardPage = ({ dashboard }) => {
+interface Props {
+  graphChart: GraphChartState;
+}
+
+const DashboardPage: React.FC<Props> = (props) => {
   return (
     <div className={styles.dashboardPage}>
       <div className={styles.container}>
         <h1 className={styles.title}>Your States</h1>
         <div className={styles.dashboards}>
-          <PostViews postViews={dashboard.postViews} />
+          {/*  <PostViews postViews={dashboard.postViews} />
           <Upvotes upvotes={dashboard.upvotes} />
           <Comments comments={dashboard.comments} />
           <ProfileViews profileViews={dashboard.profileViews} />
-          <PieChart pieChart={dashboard.pieChart} />
-          <GraphChart graphChart={dashboard.graphChart} />
-          <UserSignup userSignup={dashboard.userSignup} />
+          <PieChart pieChart={dashboard.pieChart} /> */}
+          <GraphChart graphChart={props.graphChart} />
+          {/* <UserSignup userSignup={dashboard.userSignup} />
           <PostProgress postProgress={dashboard.postProgress} />
-          <LineGraph lineGraph={dashboard.lineGraph} />
+          <LineGraph lineGraph={dashboard.lineGraph} /> */}
         </div>
       </div>
     </div>

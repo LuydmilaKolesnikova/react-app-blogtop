@@ -1,16 +1,17 @@
 import React from "react";
 import styles from "./Comments.module.css";
 import commonStyles from "../DashboardPage.module.css";
+import { CommentsState } from "../../../redux/dashboard-reducer";
 
-const Comments = ({ comments }) => {
+const Comments = ({ number, procent }: any) => {
   return (
     <div className={`${styles.comments} ${commonStyles.block}`}>
       <h2 className={commonStyles.caption}>COMMENTS</h2>
-      {comments && (
+      {{ number, procent } && (
         <>
-          <div className={commonStyles.number}>{comments.number}</div>
+          <div className={commonStyles.number}>{number}</div>
           <div className={`${commonStyles.procent} ${styles.procent}`}>
-            {comments.procent}%
+            {procent}%
           </div>
         </>
       )}

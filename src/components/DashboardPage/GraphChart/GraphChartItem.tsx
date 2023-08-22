@@ -2,7 +2,14 @@ import React from "react";
 import styles from "./GraphChart.module.css";
 import { useState } from "react";
 
-const GraphChartItem = ({ y, height, number, label }) => {
+interface Props {
+  y: number;
+  height: number;
+  number: number;
+  label: string;
+}
+
+const GraphChartItem: React.FC<Props> = (props) => {
   let [itemHover, setItemHover] = useState(false);
 
   return (
@@ -18,22 +25,22 @@ const GraphChartItem = ({ y, height, number, label }) => {
         xmlns="http://www.w3.org/2000/svg"
         fill="#3599EA"
       >
-        <rect x="0" y={y} width="40" height={height} />
+        <rect x="0" y={props.y} width="40" height={props.height} />
         {itemHover && (
           <text
             x="20"
-            y={y + 15}
+            y={props.y + 15}
             width="40"
             font-size="12px"
             text-anchor="middle"
             fill="#fff"
             className={styles.graphChartText}
           >
-            {number}k
+            {props.number}k
           </text>
         )}
       </svg>
-      <div className={styles.itemLabel}>{label}</div>
+      <div className={styles.itemLabel}>{props.label}</div>
     </div>
   );
 };

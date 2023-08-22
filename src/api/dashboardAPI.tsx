@@ -1,11 +1,13 @@
 import { instance } from "./instanceAPI";
 
-interface dashboardResponse { data: {dashboard:{} } };
+import { DashboardInitialState } from "../redux/dashboard-reducer";
 
+interface dashboardResponse {
+  data: { dashboard: DashboardInitialState };
+}
 
 export const dashboardAPI = {
-
-  getAuthUserDashboard(id:number) : Promise<dashboardResponse> {
+  getAuthUserDashboard(id: number): Promise<dashboardResponse> {
     return instance.get(`users/${id}`);
   },
 };

@@ -16,42 +16,106 @@ export function setAuthUserDashboard(
   };
 }
 
+export interface PostViewsState {
+  number?: number;
+  procent?: number;
+}
+
+export interface UpvotesState {
+  number?: number;
+  procent?: number;
+}
+
+export interface CommentsState {
+  number?: number;
+  procent?: number;
+}
+
+export interface ProfileViewsState {
+  number?: number;
+  procent?: number;
+}
+
+export interface PieChartState {
+  allVisitors?: number;
+  os?: { osName: string; count: number }[];
+}
+
+export interface GraphChartViewState {
+  month: string;
+  count: number;
+}
+
+export interface GraphChartState {
+  views: Array<GraphChartViewState>; //{ month: string; count: number }[];
+}
+
+export interface UserSignupState {
+  users?: {
+    name: string;
+    email: string;
+    time: string;
+    role: string;
+  }[];
+}
+
+export interface PostProgressState {
+  users?: {
+    name: string;
+    email: string;
+    time: string;
+    role: string;
+  }[];
+}
+
+export interface LineGrapState {
+  points?: { newUsers: number; year: number }[];
+}
+
 export interface DashboardInitialState {
-  dashboard: {
-    postViews?: { number: number; procent: number };
-    upvotes?: { number: number; procent: number };
-    comments?: { number: number; procent: number };
-    profileViews?: { number: number; procent: number };
-    pieChart?: {
+  //dashboard: {
+  postViews?: PostViewsState; //{ number: number; procent: number };
+  upvotes?: UpvotesState; //{ number: number; procent: number };
+  comments?: CommentsState; //{ number: number; procent: number };
+  profileViews?: ProfileViewsState; //{ number: number; procent: number };
+  pieChart?: PieChartState /* {
       allVisitors: number;
       os: { osName: string; count: number }[];
-    };
-    graphChart?: {
+    }; */;
+  graphChart?: GraphChartState /* {
       views: { month: string; count: number }[];
-    };
-    userSignup?: {
+    }; */;
+  userSignup?: UserSignupState /* {
       users: {
         name: string;
         email: string;
         time: string;
         role: string;
       }[];
-    };
-    postProgress?: {
+    }; */;
+  postProgress?: PostProgressState /* {
       posts: {
         category: string;
         procent: string;
         classname: string;
       }[];
-    };
-    lineGraph?: {
+    }; */;
+  lineGraph?: LineGrapState /* {
       points: { newUsers: number; year: number }[];
-    };
-  };
+    }; */;
+  //};
 }
 
 let initialState: DashboardInitialState = {
-  dashboard: {},
+  postViews: { number: 20, procent: 30 },
+  upvotes: {},
+  comments: { number: 20, procent: 30 },
+  profileViews: {},
+  pieChart: {},
+  graphChart: { views: [{ month: "January", count: 30 }] },
+  userSignup: {},
+  postProgress: {},
+  lineGraph: {},
 };
 
 const dashboardReducer = (
@@ -62,7 +126,7 @@ const dashboardReducer = (
     case SET_AUTH_USER_DASHBOARD: {
       return {
         ...state,
-        dashboard: { ...action.dashboardData.dashboard },
+        //dashboard: { ...action.dashboardData.dashboard },
       };
     }
     default:
@@ -78,7 +142,7 @@ export function getAuthUserDashboard(id: number) {
   return async (dispatch: GetAuthUserDashboardhCallback) => {
     try {
       const response = await dashboardAPI.getAuthUserDashboard(id);
-      dispatch(setAuthUserDashboard(response.data));
+      dispatch(setAuthUserDashboard(response.data.dashboard));
     } catch (e) {}
   };
 }
