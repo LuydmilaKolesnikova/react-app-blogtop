@@ -4,9 +4,9 @@ const SET_USER_DATA = "SET_USER_DATA";
 const REGISTRATION_SUCCESS = "REGISTRATION_SUCCESS";
 
 interface PayloadData {
-  id?: number;
-  email?: string;
-  login?: string;
+  id?: number | null;
+  email?: string | null;
+  login?: string | null;
 }
 
 interface SetUserDataAction {
@@ -15,9 +15,9 @@ interface SetUserDataAction {
 }
 
 export function setAuthUserData(
-  id?: number,
-  email?: string,
-  login?: string
+  id?: number | null,
+  email?: string | null,
+  login?: string | null
 ): SetUserDataAction {
   return {
     type: SET_USER_DATA,
@@ -72,20 +72,30 @@ const authReducer = (
   }
 };
 
+type SetAuthUserDataDispatchCallback = (
+  param: SetUserDataAction
+) => AuthInitialState;
+
 export function getAuthUserData() {
-  return async (dispatch) => {
+  return async (dispatch: SetAuthUserDataDispatchCallback) => {
     try {
       const response = await authAPI.me();
-      let { id, email, login } = response.data;
-      dispatch(setAuthUserData(id, email, login));
+      if (response.data) {
+        let { id, email, login } = response.data;
+        dispatch(setAuthUserData(id, email, login));
+      }
     } catch (e) {
       alert("No response from server");
     }
   };
 }
 
+type LoginDispatchCallback = (
+  param: (dispatch: SetAuthUserDataDispatchCallback) => Promise<void>
+) => AuthInitialState;
+
 export function login(email: string, password: string) {
-  return async (dispatch) => {
+  return async (dispatch: LoginDispatchCallback) => {
     try {
       await authAPI.login(email, password);
       dispatch(getAuthUserData());
@@ -95,8 +105,12 @@ export function login(email: string, password: string) {
   };
 }
 
+type RegisteringDispatchCallback = (
+  param: RegistrationSuccessAction
+) => boolean;
+
 export function registering(login: string, email: string, password: string) {
-  return async (dispatch) => {
+  return async (dispatch: RegisteringDispatchCallback) => {
     try {
       await authAPI.registering(login, email, password);
       dispatch(registrationSuccess(true));
@@ -106,8 +120,10 @@ export function registering(login: string, email: string, password: string) {
   };
 }
 
+type LogoutDispatchCallback = (param: SetUserDataAction) => void;
+
 export function logout() {
-  return async (dispatch) => {
+  return async (dispatch: LogoutDispatchCallback) => {
     try {
       await authAPI.logout();
       dispatch(setAuthUserData(null, null, null));

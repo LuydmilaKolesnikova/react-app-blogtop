@@ -70,8 +70,12 @@ const dashboardReducer = (
   }
 };
 
+type GetAuthUserDashboardhCallback = (
+  param: SetAuthUserDashboardAction
+) => DashboardInitialState;
+
 export function getAuthUserDashboard(id: number) {
-  return async (dispatch) => {
+  return async (dispatch: GetAuthUserDashboardhCallback) => {
     try {
       const response = await dashboardAPI.getAuthUserDashboard(id);
       dispatch(setAuthUserDashboard(response.data));
