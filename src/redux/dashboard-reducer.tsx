@@ -36,9 +36,14 @@ export interface ProfileViewsState {
   procent?: number;
 }
 
+export interface PieChartOsState {
+  osName: string;
+  count: number;
+}
+
 export interface PieChartState {
-  allVisitors?: number;
-  os?: { osName: string; count: number }[];
+  allVisitors: number;
+  os: Array<PieChartOsState>;
 }
 
 export interface GraphChartViewState {
@@ -47,63 +52,42 @@ export interface GraphChartViewState {
 }
 
 export interface GraphChartState {
-  views: Array<GraphChartViewState>; //{ month: string; count: number }[];
+  views: Array<GraphChartViewState>;
+}
+
+export interface UserSignupUserState {
+  name: string;
+  email: string;
+  time: string;
+  role: string;
 }
 
 export interface UserSignupState {
-  users?: {
-    name: string;
-    email: string;
-    time: string;
-    role: string;
-  }[];
+  users: Array<UserSignupUserState>;
 }
 
 export interface PostProgressState {
-  users?: {
-    name: string;
-    email: string;
-    time: string;
-    role: string;
+  posts: {
+    category: string;
+    procent: string;
+    classname: string;
   }[];
 }
 
-export interface LineGrapState {
-  points?: { newUsers: number; year: number }[];
+export interface LineGraphState {
+  points: { newUsers: number; year: number }[];
 }
 
 export interface DashboardInitialState {
-  //dashboard: {
-  postViews?: PostViewsState; //{ number: number; procent: number };
-  upvotes?: UpvotesState; //{ number: number; procent: number };
-  comments?: CommentsState; //{ number: number; procent: number };
-  profileViews?: ProfileViewsState; //{ number: number; procent: number };
-  pieChart?: PieChartState /* {
-      allVisitors: number;
-      os: { osName: string; count: number }[];
-    }; */;
-  graphChart?: GraphChartState /* {
-      views: { month: string; count: number }[];
-    }; */;
-  userSignup?: UserSignupState /* {
-      users: {
-        name: string;
-        email: string;
-        time: string;
-        role: string;
-      }[];
-    }; */;
-  postProgress?: PostProgressState /* {
-      posts: {
-        category: string;
-        procent: string;
-        classname: string;
-      }[];
-    }; */;
-  lineGraph?: LineGrapState /* {
-      points: { newUsers: number; year: number }[];
-    }; */;
-  //};
+  postViews: PostViewsState;
+  upvotes: UpvotesState;
+  comments: CommentsState;
+  profileViews: ProfileViewsState;
+  pieChart: PieChartState;
+  graphChart: GraphChartState;
+  userSignup: UserSignupState;
+  postProgress: PostProgressState;
+  lineGraph: LineGraphState;
 }
 
 let initialState: DashboardInitialState = {
@@ -111,11 +95,28 @@ let initialState: DashboardInitialState = {
   upvotes: {},
   comments: { number: 20, procent: 30 },
   profileViews: {},
-  pieChart: {},
+  pieChart: { allVisitors: 20, os: [{ osName: "ioS", count: 5 }] },
   graphChart: { views: [{ month: "January", count: 30 }] },
-  userSignup: {},
-  postProgress: {},
-  lineGraph: {},
+  userSignup: {
+    users: [
+      {
+        name: "ggggg",
+        email: "hhhhhhhhhhh",
+        time: "yyyyyyyyyyyy",
+        role: "ffffffffff",
+      },
+    ],
+  },
+  postProgress: {
+    posts: [
+      {
+        category: "ggggg",
+        procent: "20%",
+        classname: "rrrrr",
+      },
+    ],
+  },
+  lineGraph: { points: [{ newUsers: 25, year: 2020 }] },
 };
 
 const dashboardReducer = (
@@ -126,7 +127,6 @@ const dashboardReducer = (
     case SET_AUTH_USER_DASHBOARD: {
       return {
         ...state,
-        //dashboard: { ...action.dashboardData.dashboard },
       };
     }
     default:

@@ -4,7 +4,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
-import DashboardPage from "./components/DashboardPage/DashboardPage";
+import DashboardPageContainer from "./components/DashboardPage/DashboardPageContainer";
 import AllPages from "./components/AllPages/AllPages";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Footer from "./components/Footer/Footer";
@@ -17,7 +17,6 @@ import { GraphChartState } from "./redux/dashboard-reducer";
 
 interface Props {
   getAuthUserData: () => void;
-  graphChart: GraphChartState;
 }
 
 class App extends React.Component<Props> {
@@ -34,7 +33,7 @@ class App extends React.Component<Props> {
               <Route path="/profile/*" element={<ProfilePage />}></Route>
               <Route
                 path="/dashboard/*"
-                element={<DashboardPage graphChart={this.props.graphChart} />}
+                element={<DashboardPageContainer />}
               ></Route>
             </Route>
             <Route path="/" element={<HomePage />}></Route>

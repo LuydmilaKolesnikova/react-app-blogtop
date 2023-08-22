@@ -2,18 +2,23 @@ import React from "react";
 import styles from "./PieChart.module.css";
 import { useState } from "react";
 
-const PieChartDiagramItem = ({ classname, d }) => {
+interface Props {
+  classname: string;
+  d: string;
+}
+
+const PieChartDiagramItem: React.FC<Props> = (props) => {
   let [diagramItemHover, setDiagramItemHover] = useState(false);
   return (
     <path
       className={
         diagramItemHover
-          ? `${styles[classname]} ${styles.diagramItemHover}`
-          : `${styles[classname]}`
+          ? `${styles[props.classname]} ${styles.diagramItemHover}`
+          : `${styles[props.classname]}`
       }
       fill="none"
       stroke-width="40"
-      d={d}
+      d={props.d}
       onMouseOver={() => setDiagramItemHover(true)}
       onMouseOut={() => setDiagramItemHover(false)}
     />

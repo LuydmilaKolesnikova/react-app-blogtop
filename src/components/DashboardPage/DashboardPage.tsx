@@ -9,11 +9,14 @@ import PostViews from "./PostViews/PostViews";
 import ProfileViews from "./ProfileViews/ProfileViews";
 import Upvotes from "./Upvotes/Upvotes";
 import UserSignup from "./UserSignup/UserSignup";
-import { DashboardInitialState } from "../../redux/dashboard-reducer";
-import { GraphChartState } from "../../redux/dashboard-reducer";
+import {
+  DashboardInitialState,
+  CommentsState,
+  GraphChartState,
+} from "../../redux/dashboard-reducer";
 
 interface Props {
-  graphChart: GraphChartState;
+  dashboard: DashboardInitialState;
 }
 
 const DashboardPage: React.FC<Props> = (props) => {
@@ -22,15 +25,15 @@ const DashboardPage: React.FC<Props> = (props) => {
       <div className={styles.container}>
         <h1 className={styles.title}>Your States</h1>
         <div className={styles.dashboards}>
-          {/*  <PostViews postViews={dashboard.postViews} />
-          <Upvotes upvotes={dashboard.upvotes} />
-          <Comments comments={dashboard.comments} />
-          <ProfileViews profileViews={dashboard.profileViews} />
-          <PieChart pieChart={dashboard.pieChart} /> */}
-          <GraphChart graphChart={props.graphChart} />
-          {/* <UserSignup userSignup={dashboard.userSignup} />
-          <PostProgress postProgress={dashboard.postProgress} />
-          <LineGraph lineGraph={dashboard.lineGraph} /> */}
+          <PostViews postViews={props.dashboard.postViews} />
+          <Upvotes upvotes={props.dashboard.upvotes} />
+          <Comments comments={props.dashboard.comments} />
+          <ProfileViews profileViews={props.dashboard.profileViews} />
+          <PieChart pieChart={props.dashboard.pieChart} />
+          <GraphChart graphChart={props.dashboard.graphChart} />
+          <UserSignup userSignup={props.dashboard.userSignup} />
+          <PostProgress postProgress={props.dashboard.postProgress} />
+          <LineGraph lineGraph={props.dashboard.lineGraph} />
         </div>
       </div>
     </div>
@@ -38,3 +41,16 @@ const DashboardPage: React.FC<Props> = (props) => {
 };
 
 export default DashboardPage;
+
+{
+  /* 
+          <ProfileViews profileViews={dashboard.profileViews} />
+          <PieChart pieChart={dashboard.pieChart} />
+          <GraphChart graphChart={props.graphChart} />
+          <UserSignup userSignup={dashboard.userSignup} />
+          <PostProgress postProgress={dashboard.postProgress} />
+          <LineGraph lineGraph={dashboard.lineGraph} />
+ */
+}
+//graphChart: GraphChartState;
+//comments: CommentsState;

@@ -3,9 +3,17 @@ import styles from "./PieChart.module.css";
 import commonStyles from "../DashboardPage.module.css";
 import PieChartLegendItem from "./PieChartLegendItem";
 import PieChartDiagramItem from "./PieChartDiagramItem";
+import {
+  PieChartState,
+  PieChartOsState,
+} from "../../../redux/dashboard-reducer";
 
-const PieChart = ({ pieChart }) => {
-  const angles = (os, allVisitors) => {
+interface Props {
+  pieChart: PieChartState;
+}
+
+const PieChart: React.FC<Props> = (props) => {
+  const angles = (os: Array<PieChartOsState>, allVisitors: number) => {
     let angleArr = [0];
 
     for (let i = 0; i < os.length; i++) {
@@ -28,7 +36,12 @@ const PieChart = ({ pieChart }) => {
     return pathD;
   };
 
-  const polarToCartesian = (centerX, centerY, radius, angleInDegrees) => {
+  const polarToCartesian = (
+    centerX: number,
+    centerY: number,
+    radius: number,
+    angleInDegrees: number
+  ) => {
     var angleInRadians = ((angleInDegrees - 90) * Math.PI) / 180.0;
 
     return {
@@ -37,7 +50,13 @@ const PieChart = ({ pieChart }) => {
     };
   };
 
-  const describeArc = (x, y, radius, startAngle, endAngle) => {
+  const describeArc = (
+    x: number,
+    y: number,
+    radius: number,
+    startAngle: number,
+    endAngle: number
+  ) => {
     let start = polarToCartesian(x, y, radius, endAngle);
     let end = polarToCartesian(x, y, radius, startAngle);
 
@@ -60,18 +79,19 @@ const PieChart = ({ pieChart }) => {
     return d;
   };
 
-  const pathD = pieChart && angles(pieChart.os, pieChart.allVisitors);
+  const pathD =
+    props.pieChart && angles(props.pieChart.os, props.pieChart.allVisitors);
 
   return (
     <div className={`${styles.pieChart} ${commonStyles.block}`}>
       <h2 className={commonStyles.caption}>PIE CHART</h2>
       <div className={styles.area}>
-        {pieChart && (
+        {props && (
           <>
             <div className={styles.diagram}>
               <svg width="260" height="260" xmlns="http://www.w3.org/2000/svg">
-                {pathD.map((d, index) => {
-                  let classname = "diagram" + pieChart.os[index].osName;
+                {pathD.map((d: string, index: number) => {
+                  let classname = "diagram" + props.pieChart.os[index].osName;
                   return (
                     <PieChartDiagramItem
                       key={index}
@@ -85,9 +105,9 @@ const PieChart = ({ pieChart }) => {
             <div className={styles.legend}>
               <div className={styles.allVisitors}>ALL VISITORS</div>
               <div className={styles.totalVisitorsCount}>
-                {pieChart.allVisitors}k
+                {props.pieChart.allVisitors}k
               </div>
-              {pieChart.os.map((os, index) => {
+              {props.pieChart.os.map((os, index) => {
                 let classname = "legend" + os.osName;
                 return (
                   <PieChartLegendItem
