@@ -13,6 +13,7 @@ import LogoutPageContainer from "./components/LogoutPage/LogoutPageContainer";
 import RegisterPageContainer from "./components/RegisterPage/RegisterPageContainer";
 import { getAuthUserData } from "./redux/auth-reducer";
 import PrivateRouteContainer from "./utils/router/PrivateRouteContainer";
+import { GraphChartState } from "./redux/dashboard-reducer";
 
 interface Props {
   getAuthUserData: () => void;

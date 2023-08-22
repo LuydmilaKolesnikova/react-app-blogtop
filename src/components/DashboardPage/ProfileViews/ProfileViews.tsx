@@ -1,16 +1,21 @@
 import React from "react";
 import styles from "./ProfileViews.module.css";
 import commonStyles from "../DashboardPage.module.css";
+import { ProfileViewsState } from "../../../redux/dashboard-reducer";
 
-const ProfileViews = ({ profileViews }) => {
+interface Props {
+  profileViews: ProfileViewsState;
+}
+
+const ProfileViews: React.FC<Props> = (props) => {
   return (
     <div className={`${styles.profileViews} ${commonStyles.block}`}>
       <h2 className={commonStyles.caption}>PROFILE VIEWS</h2>
-      {profileViews && (
+      {props && (
         <>
-          <div className={commonStyles.number}>{profileViews.number}</div>
+          <div className={commonStyles.number}>{props.profileViews.number}</div>
           <div className={`${commonStyles.procent} ${styles.procent}`}>
-            {profileViews.procent}%
+            {props.profileViews.procent}%
           </div>
         </>
       )}

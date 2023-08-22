@@ -1,10 +1,16 @@
 import React from "react";
 import styles from "./PostProgress.module.css";
 
-const PostProgressItem = ({ category, procent, classname }) => {
+interface Props {
+  category: string;
+  procent: string;
+  classname: string;
+}
+
+const PostProgressItem: React.FC<Props> = (props) => {
   return (
     <div className={styles.item}>
-      <div className={styles.itemCategory}>{category}</div>
+      <div className={styles.itemCategory}>{props.category}</div>
       <svg width="100%" height="20" xmlns="http://www.w3.org/2000/svg">
         <rect
           x="0"
@@ -17,10 +23,10 @@ const PostProgressItem = ({ category, procent, classname }) => {
         />
 
         <rect
-          className={`${styles[classname]}`}
+          className={`${styles[props.classname]}`}
           x="0"
           y="0"
-          width={procent}
+          width={props.procent}
           height="20"
           rx="10"
           ry="10"
@@ -34,7 +40,7 @@ const PostProgressItem = ({ category, procent, classname }) => {
           font-weight="bold"
           fill="#fff"
         >
-          {procent}
+          {props.procent}
         </text>
       </svg>
     </div>

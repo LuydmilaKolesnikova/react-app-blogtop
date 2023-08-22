@@ -1,63 +1,72 @@
 import React from "react";
 import styles from "./LineGraph.module.css";
 import commonStyles from "../DashboardPage.module.css";
-import * as d3 from "d3";
+//import * as d3 from "d3";
+import { LineGraphState } from "../../../redux/dashboard-reducer";
 
-const LineGraph = ({ lineGraph }) => {
-  let getY = null;
-  let getX = null;
-  let getYAxis = null;
-  let getXAxis = null;
-  let linePath = null;
-  let areaPath = null;
+interface Props {
+  lineGraph: LineGraphState;
+}
 
-  if (lineGraph) {
+const LineGraph: React.FC<Props> = (props) => {
+  /* let getY: unknown;
+  let getX: unknown;
+  let getYAxis: unknown;
+  let getXAxis: unknown;
+  let linePath: string;
+  let areaPath: string;
+
+  if (props.lineGraph) {
     getY = d3
       .scaleLinear()
-      .domain([0, lineGraph.points[lineGraph.points.length - 1].newUsers + 10])
+      .domain([
+        0,
+        props.lineGraph.points[props.lineGraph.points.length - 1].newUsers + 10,
+      ])
       .range([280, 0]);
 
     getX = d3
       .scaleLinear()
       .domain([
-        lineGraph.points[0].year,
-        lineGraph.points[lineGraph.points.length - 1].year,
+        props.lineGraph.points[0].year,
+        props.lineGraph.points[props.lineGraph.points.length - 1].year,
       ])
       .range([50, 1460]);
 
-    getYAxis = (ref) => {
+    getYAxis = (ref: unknown) => {
       const yAxis = d3.axisLeft(getY);
       d3.select(ref).call(yAxis);
     };
 
-    getXAxis = (ref) => {
+    getXAxis = (ref: unknown) => {
       const xAxis = d3.axisBottom(getX);
       d3.select(ref).call(xAxis);
     };
 
     linePath = d3
       .line()
-      .x((d) => getX(d[0]))
-      .y((d) => getY(d[1]))
-      .curve(d3.curveMonotoneX)(lineGraph.points);
+      .x((d: unknown) => getX(d[0]))
+      .y((d: unknown) => getY(d[1]))
+      .curve(d3.curveMonotoneX)(props.lineGraph.points);
 
     areaPath = d3
       .area()
-      .x((d) => getX(d[0]))
-      .y0((d) => getY(d[1]))
+      .x((d: unknown) => getX(d[0]))
+      .y0((d: unknown) => getY(d[1]))
       .y1(() => getY(0))
-      .curve(d3.curveMonotoneX)(lineGraph.points);
-  }
+      .curve(d3.curveMonotoneX)(props.lineGraph.points);
+  } */
 
   return (
-    <div className={`${styles.lineGraph} ${commonStyles.block}`}>
+    <></>
+    /* <div className={`${styles.lineGraph} ${commonStyles.block}`}>
       <h2 className={commonStyles.caption}>LINE GRAPH WITH GRADIENT</h2>
-      {lineGraph && (
+      {props.lineGraph && (
         <div className={styles.area}>
           <svg width={1484} height={330}>
             <g ref={getYAxis} transform={`translate(50)`} />
             <g ref={getXAxis} transform={`translate(0,${getY(0)})`} />
-            {lineGraph.points.map((item, index) => (
+            {props.lineGraph.points.map((item, index) => (
               <g key={index}>
                 <circle
                   cx={getX(item.year)}
@@ -85,7 +94,7 @@ const LineGraph = ({ lineGraph }) => {
           </svg>
         </div>
       )}
-    </div>
+    </div> */
   );
 };
 
