@@ -6,6 +6,7 @@ import thunk from "redux-thunk";
 import { AuthInitialState } from "./auth-reducer";
 import { DashboardInitialState } from "./dashboard-reducer";
 import { HeaderInitialState } from "./header-reducer";
+import { FooterInitialState } from "./footer-reducer";
 
 let reducers = combineReducers({
   header: headerReducer,
@@ -21,6 +22,7 @@ export interface State {
   auth: AuthInitialState;
   header: HeaderInitialState;
   dashboard: DashboardInitialState;
+  footer: FooterInitialState;
 }
 
 export default store;

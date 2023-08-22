@@ -1,13 +1,9 @@
-import React, { Dispatch } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import DashboardPage from "./DashboardPage";
 import { getAuthUserDashboard } from "../../redux/dashboard-reducer";
 import { State } from "../../redux/redux-store";
-import {
-  DashboardInitialState,
-  GraphChartState,
-  CommentsState,
-} from "../../redux/dashboard-reducer";
+import { DashboardInitialState } from "../../redux/dashboard-reducer";
 
 export interface Props {
   dashboard: DashboardInitialState;

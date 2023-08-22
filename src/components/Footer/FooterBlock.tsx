@@ -1,12 +1,18 @@
 import React from "react";
 import styles from "./Footer.module.css";
 import FooterBlockItem from "./FooterBlockItem";
+import { FooterPostInitialState } from "../../redux/footer-reducer";
 
-const FooterBlock = ({ title, data }) => {
+interface Props {
+  title: string;
+  posts: Array<FooterPostInitialState>;
+}
+
+const FooterBlock: React.FC<Props> = (props) => {
   return (
     <div className={`${styles.block}`}>
-      <h2 className={styles.title}>{title}</h2>
-      {data.map((post, index) => (
+      <h2 className={styles.title}>{props.title}</h2>
+      {props.posts.map((post, index) => (
         <FooterBlockItem
           key={index}
           avatar={post.avatar}

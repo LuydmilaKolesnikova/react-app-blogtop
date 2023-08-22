@@ -13,10 +13,11 @@ import LogoutPageContainer from "./components/LogoutPage/LogoutPageContainer";
 import RegisterPageContainer from "./components/RegisterPage/RegisterPageContainer";
 import { getAuthUserData } from "./redux/auth-reducer";
 import PrivateRouteContainer from "./utils/router/PrivateRouteContainer";
-import { GraphChartState } from "./redux/dashboard-reducer";
+import { FooterInitialState } from "./redux/footer-reducer";
 
 interface Props {
   getAuthUserData: () => void;
+  postsData: FooterInitialState;
 }
 
 class App extends React.Component<Props> {
@@ -45,7 +46,7 @@ class App extends React.Component<Props> {
               element={<RegisterPageContainer />}
             ></Route>
           </Routes>
-          <Footer />
+          <Footer postsData={this.props.postsData} />
         </div>
       </BrowserRouter>
     );

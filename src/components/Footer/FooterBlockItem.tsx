@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import styles from "./Footer.module.css";
 
-const FooterBlockItem = ({ avatar, postName, time }) => {
+interface Props {
+  avatar: string;
+  postName: string;
+  time: string;
+}
+
+const FooterBlockItem: React.FC<Props> = (props) => {
   let [postNameHover, setPostNameHover] = useState(false);
   return (
     <div className={styles.item}>
-      <img className={styles.avatar} src={avatar} alt="" />
+      <img className={styles.avatar} src={props.avatar} alt="" />
       <div className={styles.info}>
         <h4
           className={
@@ -16,9 +22,9 @@ const FooterBlockItem = ({ avatar, postName, time }) => {
           onMouseOver={() => setPostNameHover(true)}
           onMouseOut={() => setPostNameHover(false)}
         >
-          {postName}
+          {props.postName}
         </h4>
-        <p className={styles.postTime}>{time}</p>
+        <p className={styles.postTime}>{props.time}</p>
       </div>
     </div>
   );
