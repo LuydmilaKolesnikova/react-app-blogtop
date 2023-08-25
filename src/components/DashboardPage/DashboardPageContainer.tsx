@@ -32,12 +32,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(DashboardPageContainer);
-
-//graphChart: state.dashboard.graphChart,
-//comments: state.dashboard.comments,
-
-//comments: CommentsState;
-//graphChart: GraphChartState;
-
-//graphChart={this.props.graphChart}
-//comments={this.props.comments}

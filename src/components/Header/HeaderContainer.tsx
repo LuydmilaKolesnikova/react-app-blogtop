@@ -3,17 +3,17 @@ import { connect } from "react-redux";
 import Header from "./Header";
 import { getAuthUserData } from "../../redux/header-reducer";
 import {
-  ProfileData,
-  Statistics,
-  NewActions,
+  ProfileDataState,
+  StatisticsState,
+  NewActionsState,
 } from "../../redux/header-reducer";
 import { State } from "../../redux/redux-store";
 
 interface Props {
-  profileData: ProfileData;
-  statistics: Statistics;
-  newActions: NewActions;
-  isAuth: boolean;
+  profileData: ProfileDataState;
+  statistics: StatisticsState;
+  newActions: NewActionsState;
+  isAuth: boolean | null;
   getAuthUserData: (id: number) => void;
 }
 
@@ -42,7 +42,7 @@ const mapStateToProps = (state: State) => ({
   isAuth: state.auth.isAuth,
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch: any) => ({
   getAuthUserData: (id: number) => dispatch(getAuthUserData(id)),
 });
 

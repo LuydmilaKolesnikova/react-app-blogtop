@@ -16,38 +16,39 @@ export function setAuthUserData(
   };
 }
 
-export interface ProfileData {
-  name?: string;
-  address?: string;
-  photo?: string;
+export interface ProfileDataState {
+  name: string;
+  address: string;
+  photo: string;
 }
 
-export interface Statistics {
-  posts?: number;
-  followers?: number;
-  following?: number;
+export interface StatisticsState {
+  posts: number;
+  followers: number;
+  following: number;
 }
 
-export interface NewActions {
-  followfeed?: number;
-  messages?: number;
-  notifications?: number;
+export interface NewActionsState {
+  [key: string]: number;
+  followfeed: number;
+  messages: number;
+  notifications: number;
 }
 
 export interface HeaderInitialState {
-  profileData: ProfileData;
-  statistics: Statistics;
-  newActions: NewActions;
+  profileData: ProfileDataState;
+  statistics: StatisticsState;
+  newActions: NewActionsState;
 }
 
-let initialState: HeaderInitialState = {
+/* let initialState: HeaderInitialState = {
   profileData: {},
   statistics: {},
   newActions: {},
-};
+}; */
 
 const headerReducer = (
-  state: HeaderInitialState = initialState,
+  state: HeaderInitialState,
   action: SetAuthUserDataAction
 ) => {
   switch (action.type) {

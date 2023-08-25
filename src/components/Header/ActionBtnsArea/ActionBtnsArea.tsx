@@ -7,8 +7,39 @@ import ActionBtn from "./ActionBtn";
 import FollowfeedDropdown from "./ActionDropdown/FollowfeedDropdown";
 import MessagesDropdown from "./ActionDropdown/MessagesDropdown";
 import NotificationsDropdown from "./ActionDropdown/NotificationsDropdown";
+import { NewActionsState } from "../../../redux/header-reducer";
+interface Props {
+  newActions: NewActionsState;
+}
 
-const data = [
+const ActionBtnsArea: React.FC<Props> = (props) => {
+  const elements = [];
+  for (let property in props.newActions) {
+    elements.push(
+      <ActionBtn
+        classname={props.newActions[property] + "Count"}
+        count={props.newActions[property]}
+      />
+    );
+  }
+  return <div className={styles.newActionsGroup}>{elements}</div>;
+};
+
+export default ActionBtnsArea;
+
+//const [btns] = useState(data);
+
+/* {btns.map((btn, index) => (
+  <ActionBtn
+    key={index}
+    classname={btn.name + "Count"}
+    dropdown={btn.dropdown}
+    icon={btn.icon}
+    count={newActions[btn.name]}
+  />
+))} */
+
+/* const data = [
   {
     icon: <FollowfeedIcon />,
     dropdown: <FollowfeedDropdown />,
@@ -28,23 +59,8 @@ const data = [
     name: "notifications",
   },
 ];
+ */
 
-const ActionBtnsArea = ({ newActions }) => {
-  const [btns] = useState(data);
-
-  return (
-    <div className={styles.newActionsGroup}>
-      {btns.map((btn, index) => (
-        <ActionBtn
-          key={index}
-          classname={btn.name + "Count"}
-          dropdown={btn.dropdown}
-          icon={btn.icon}
-          count={newActions[btn.name]}
-        />
-      ))}
-    </div>
-  );
-};
-
-export default ActionBtnsArea;
+/* {typeof props.newActions[property] === "number" && (
+        <ActionBtn count={props.newActions[property] as number} />
+      )} */
