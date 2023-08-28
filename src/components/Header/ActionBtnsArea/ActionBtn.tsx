@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import styles from "./ActionBtnsArea.module.css";
 
-const ActionBtn = ({ classname, dropdown, icon, count }) => {
+interface Props {
+  count: number;
+  classname: string;
+  dropdown: React.ReactNode;
+  icon: React.ReactNode;
+}
+
+const ActionBtn: React.FC<Props> = (props) => {
   let [dropdownVisible, setDropdownVisible] = useState(false);
   let [btnAreaHover, setBtnAreaHover] = useState(false);
 
@@ -22,14 +29,16 @@ const ActionBtn = ({ classname, dropdown, icon, count }) => {
       }}
     >
       <button className={styles.newActionsBtn}>
-        {icon}
-        {count > 0 && (
-          <div className={`${styles.newActionsCount} ${styles[classname]}`}>
-            {count}
+        {props.icon}
+        {props.count > 0 && (
+          <div
+            className={`${styles.newActionsCount} ${styles[props.classname]}`}
+          >
+            {props.count}
           </div>
         )}
       </button>
-      {dropdownVisible && dropdown}
+      {dropdownVisible && props.dropdown}
     </div>
   );
 };

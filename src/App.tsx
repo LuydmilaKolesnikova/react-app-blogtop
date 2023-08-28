@@ -14,10 +14,20 @@ import RegisterPageContainer from "./components/RegisterPage/RegisterPageContain
 import { getAuthUserData } from "./redux/auth-reducer";
 import PrivateRouteContainer from "./utils/router/PrivateRouteContainer";
 import { FooterInitialState } from "./redux/footer-reducer";
+import {
+  ProfileDataState,
+  StatisticsState,
+  NewActionsState,
+} from "./redux/header-reducer";
 
 interface Props {
   getAuthUserData: () => void;
   postsData: FooterInitialState;
+  profileData: ProfileDataState;
+  statistics: StatisticsState;
+  newActions: NewActionsState;
+  isAuth: boolean;
+  //getAuthUserData: (id: number) => void;
 }
 
 class App extends React.Component<Props> {

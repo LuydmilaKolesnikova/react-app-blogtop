@@ -2,14 +2,20 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./ProfileMenu.module.css";
 
-export default function ProfileMenuLink({ to, icon, text }) {
+interface Props {
+  to: string;
+  icon: React.ReactNode;
+  text: string;
+}
+
+const ProfileMenuLink: React.FC<Props> = (props) => {
   let [profileMenuLinkHover, setProfileLinkHover] = useState(false);
 
   return (
     <li>
       <NavLink
-        to={to}
-        className={({ isActive }) => (isActive ? styles.active : null)}
+        to={props.to}
+        className={({ isActive }) => (isActive ? styles.active : undefined)}
         onMouseOver={() => {
           setProfileLinkHover(true);
         }}
@@ -24,10 +30,12 @@ export default function ProfileMenuLink({ to, icon, text }) {
               : styles.menuLink
           }
         >
-          {icon}
-          <span>{text}</span>
+          {props.icon}
+          <span>{props.text}</span>
         </div>
       </NavLink>
     </li>
   );
-}
+};
+
+export default ProfileMenuLink;

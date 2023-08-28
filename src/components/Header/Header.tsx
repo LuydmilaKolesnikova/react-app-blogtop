@@ -8,8 +8,20 @@ import profileIcon from "../../images/profile-icon.jpg";
 import SearchArea from "./SearchArea/SearchArea";
 import StatisticsArea from "./StatisticsArea/StatisticsArea";
 import LoginLink from "./LoginLink/LoginLink";
+import {
+  ProfileDataState,
+  StatisticsState,
+  NewActionsState,
+} from "../../redux/header-reducer";
 
-const Header = ({ profileData, statistics, newActions, isAuth }) => {
+interface Props {
+  profileData: ProfileDataState;
+  statistics: StatisticsState;
+  newActions: NewActionsState;
+  isAuth: boolean | null;
+}
+
+const Header: React.FC<Props> = (props) => {
   let [btnAddPostHover, setBtnAddPostHover] = useState(false);
 
   return (
@@ -29,21 +41,23 @@ const Header = ({ profileData, statistics, newActions, isAuth }) => {
         >
           + ADD POST
         </button>
-        {isAuth && <ActionBtnsArea newActions={newActions} />}
-        {isAuth ? <ProfileMenu /> : <LoginLink />}
+        {props.isAuth && <ActionBtnsArea newActions={props.newActions} />}
+        {props.isAuth ? <ProfileMenu /> : <LoginLink />}
       </div>
-      {isAuth && (
+      {props.isAuth && (
         <>
           <div className={styles.headerBanner}></div>
           <div className={styles.bottomArea}>
             <div className={styles.profileInfo}>
               <img src={profileIcon} alt="" />
               <div className={styles.profileText}>
-                <p className={styles.profileName}>{profileData.name}</p>
-                <p className={styles.profileAddress}>{profileData.address}</p>
+                <p className={styles.profileName}>{props.profileData.name}</p>
+                <p className={styles.profileAddress}>
+                  {props.profileData.address}
+                </p>
               </div>
             </div>
-            <StatisticsArea statistics={statistics} />
+            <StatisticsArea statistics={props.statistics} />
           </div>
         </>
       )}
