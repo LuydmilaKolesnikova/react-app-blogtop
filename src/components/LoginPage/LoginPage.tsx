@@ -10,7 +10,12 @@ interface FormState {
   password: string;
 }
 
-const LoginPage = ({ login, isAuth }) => {
+interface Props {
+  login: (email: string, password: string) => void;
+  isAuth: boolean | null;
+}
+
+const LoginPage: React.FC<Props> = (props) => {
   const { location } = useContext(LocationContext);
   const [reg, setReg] = useState(false);
 
@@ -18,7 +23,7 @@ const LoginPage = ({ login, isAuth }) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<FormState>({
     mode: "onBlur",
     defaultValues: {
       email: "",
@@ -27,10 +32,10 @@ const LoginPage = ({ login, isAuth }) => {
   });
 
   const onSubmit = (formState: FormState) => {
-    login(formState.email, formState.password);
+    props.login(formState.email, formState.password);
   };
 
-  return isAuth ? (
+  return props.isAuth ? (
     <Navigate to={location} />
   ) : reg ? (
     <Navigate to="/register" />

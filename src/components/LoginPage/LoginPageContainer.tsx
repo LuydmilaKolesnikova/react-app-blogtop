@@ -5,7 +5,7 @@ import { login } from "../../redux/auth-reducer";
 import { State } from "../../redux/redux-store";
 
 interface Props {
-  isAuth: boolean;
+  isAuth: boolean | null;
   login: (email: string, password: string) => void;
 }
 
@@ -25,7 +25,7 @@ const mapStateToProps = (state: State) => ({
   isAuth: state.auth.isAuth,
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch: any) => ({
   login: (email: string, password: string) => dispatch(login(email, password)),
 });
 
