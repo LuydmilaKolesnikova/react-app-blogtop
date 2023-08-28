@@ -1,18 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
+import AppContainer from "./AppContainer";
 import { Provider } from "react-redux";
 import store from "./redux/redux-store";
 import reportWebVitals from "./reportWebVitals";
 import { LocationProvider } from "./utils/context/LocationProvider";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <LocationProvider>
-        <App />
+        <AppContainer />
       </LocationProvider>
     </Provider>
   </React.StrictMode>
