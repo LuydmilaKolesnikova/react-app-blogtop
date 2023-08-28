@@ -9,7 +9,7 @@ const Paginator = () => {
   let [pages, setPages] = useState(data);
   let [currentPage, setCurrentPage] = useState(1);
 
-  const changePages = (currentPage) => {
+  const changePages = (currentPage: number) => {
     setCurrentPage(currentPage);
     let pages = [];
     if (currentPage > 3) {
@@ -30,21 +30,25 @@ const Paginator = () => {
       >
         <img className={styles.prevBtnIcon} src={left} alt="" />
       </button>
-      {pages.map((p, index) => (
-        <button
-          key={index}
-          className={
-            p === currentPage
-              ? `${styles.currentPageNumberBtn} ${styles.pageNumberBtn}`
-              : p === null
-              ? styles.dotsBtn
-              : styles.pageNumberBtn
-          }
-          onClick={() => changePages(p)}
-        >
-          {p === null ? "..." : p}
-        </button>
-      ))}
+      {pages.map((p, index) => {
+        return p === null ? (
+          <span>...</span>
+        ) : (
+          <button
+            key={index}
+            className={
+              p === currentPage
+                ? `${styles.currentPageNumberBtn} ${styles.pageNumberBtn}`
+                : styles.dotsBtn
+                ? styles.pageNumberBtn
+                : ""
+            }
+            onClick={() => changePages(p)}
+          >
+            {p}
+          </button>
+        );
+      })}
       <button
         className={styles.pageNumberBtn}
         onClick={() => changePages(currentPage + 1)}

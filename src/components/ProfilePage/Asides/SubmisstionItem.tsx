@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import styles from "./Asides.module.css";
 
-const SubmisstionItem = ({ avatar, action, postName, postTime }) => {
+interface Props {
+  avatar: string;
+  action: string;
+  postName: string;
+  postTime: string;
+}
+
+const SubmisstionItem: React.FC<Props> = (props) => {
   let [submisstionInfoHover, setSubmisstionInfoHover] = useState(false);
 
   return (
     <div className={styles.submisstionItem}>
-      <img className={styles.submisstionIcon} src={avatar} alt="" />
+      <img className={styles.submisstionIcon} src={props.avatar} alt="" />
       <div
         className={
           submisstionInfoHover
@@ -16,9 +23,9 @@ const SubmisstionItem = ({ avatar, action, postName, postTime }) => {
         onMouseOver={() => setSubmisstionInfoHover(true)}
         onMouseOut={() => setSubmisstionInfoHover(false)}
       >
-        <span className={styles.submisstionAction}>{action}</span>
-        <span className={styles.submisstionPostName}>{postName}</span>
-        <p className={styles.submisstionTime}>{postTime}</p>
+        <span className={styles.submisstionAction}>{props.action}</span>
+        <span className={styles.submisstionPostName}>{props.postName}</span>
+        <p className={styles.submisstionTime}>{props.postTime}</p>
       </div>
     </div>
   );
