@@ -13,16 +13,16 @@ interface Props {
 }
 
 const ActionBtnsArea: React.FC<Props> = (props) => {
-  const elements = [];
-  for (let property in props.newActions) {
-    elements.push(
-      <ActionBtn
-        classname={props.newActions[property] + "Count"}
-        count={props.newActions[property]}
-      />
-    );
-  }
-  return <div className={styles.newActionsGroup}>{elements}</div>;
+  return (
+    <div className={styles.newActionsGroup}>
+      for (let property in props.newActions)
+      {
+        <ActionBtn
+          count={props.newActions[property as keyof NewActionsState]}
+        />
+      }
+    </div>
+  );
 };
 
 export default ActionBtnsArea;
@@ -64,3 +64,15 @@ export default ActionBtnsArea;
 /* {typeof props.newActions[property] === "number" && (
         <ActionBtn count={props.newActions[property] as number} />
       )} */
+
+/* const elements = [];
+  for (let property in props.newActions) {
+    elements.push(
+      <ActionBtn
+        classname={props.newActions[property] + "Count"}
+        count={props.newActions[property]}
+        dropdown={<MessagesDropdown />}
+      />
+    );
+  }
+  return <div className={styles.newActionsGroup}>{elements}</div>; */

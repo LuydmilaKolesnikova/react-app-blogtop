@@ -4,7 +4,8 @@ import { JsxAttribute } from "typescript";
 
 interface Props {
   count: number;
-  classname: string;
+  //classname: string;
+  //dropdown: React.ReactElement;
 }
 
 //const ActionBtn = ({ classname, dropdown, icon, count }) => {
