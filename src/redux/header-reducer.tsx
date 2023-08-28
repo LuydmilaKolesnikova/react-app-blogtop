@@ -23,6 +23,7 @@ export interface ProfileDataState {
 }
 
 export interface StatisticsState {
+  [key: string]: number;
   posts: number;
   followers: number;
   following: number;

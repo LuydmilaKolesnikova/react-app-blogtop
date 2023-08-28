@@ -1,27 +1,23 @@
 import React, { useState } from "react";
 import styles from "./StatisticsArea.module.css";
 import StatisticsInfoBlock from "./StatisticsInfoBlock";
+import { StatisticsState } from "../../../redux/header-reducer";
 
-const data = [
-  { title: "Posts", name: "posts" },
-  { title: "Followers", name: "followers" },
-  { title: "Following", name: "following" },
-];
+interface Props {
+  statistics: StatisticsState;
+}
 
-const StatisticsArea = ({ statistics }) => {
-  const [items] = useState(data);
-
-  return (
-    <div className={styles.statistics}>
-      {items.map((item, index) => (
-        <StatisticsInfoBlock
-          key={index}
-          title={item.title}
-          count={statistics[item.name]}
-        />
-      ))}
-    </div>
-  );
+const StatisticsArea: React.FC<Props> = (props) => {
+  const elements = [];
+  for (let property in props.statistics) {
+    elements.push(
+      <StatisticsInfoBlock
+        title={property}
+        count={props.statistics[property]}
+      />
+    );
+  }
+  return <div className={styles.statistics}>{elements}</div>;
 };
 
 export default StatisticsArea;

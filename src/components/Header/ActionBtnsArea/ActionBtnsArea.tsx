@@ -8,21 +8,43 @@ import FollowfeedDropdown from "./ActionDropdown/FollowfeedDropdown";
 import MessagesDropdown from "./ActionDropdown/MessagesDropdown";
 import NotificationsDropdown from "./ActionDropdown/NotificationsDropdown";
 import { NewActionsState } from "../../../redux/header-reducer";
+
 interface Props {
   newActions: NewActionsState;
 }
 
-const ActionBtnsArea: React.FC<Props> = (props) => {
+const propertyToStringReactComponent = (
+  property: string,
+  definition: string
+): string => {
   return (
-    <div className={styles.newActionsGroup}>
-      for (let property in props.newActions)
-      {
-        <ActionBtn
-          count={props.newActions[property as keyof NewActionsState]}
-        />
-      }
-    </div>
+    "<" +
+    property.charAt(0).toUpperCase() +
+    property.slice(1) +
+    definition +
+    " />"
   );
+};
+
+const ActionBtnsArea: React.FC<Props> = (props) => {
+  const elements = [];
+
+  for (let property in props.newActions) {
+    let dropdownComponent = propertyToStringReactComponent(
+      property,
+      "Dropdown"
+    );
+    let iconComponent = propertyToStringReactComponent(property, "Icon");
+    elements.push(
+      <ActionBtn
+        classname={property + "Count"}
+        count={props.newActions[property]}
+        dropdown={dropdownComponent as React.ReactNode}
+        icon={iconComponent as React.ReactNode}
+      />
+    );
+  }
+  return <div className={styles.newActionsGroup}>{elements}</div>;
 };
 
 export default ActionBtnsArea;
@@ -65,14 +87,13 @@ export default ActionBtnsArea;
         <ActionBtn count={props.newActions[property] as number} />
       )} */
 
-/* const elements = [];
-  for (let property in props.newActions) {
-    elements.push(
-      <ActionBtn
-        classname={props.newActions[property] + "Count"}
-        count={props.newActions[property]}
-        dropdown={<MessagesDropdown />}
-      />
-    );
-  }
-  return <div className={styles.newActionsGroup}>{elements}</div>; */
+/* return (
+    <div className={styles.newActionsGroup}>
+      for (let property in props.newActions)
+      {
+        <ActionBtn
+          count={props.newActions[property as keyof NewActionsState]}
+        />
+      }
+    </div>
+  ); */

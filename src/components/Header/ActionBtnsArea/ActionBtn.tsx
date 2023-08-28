@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import styles from "./ActionBtnsArea.module.css";
-import { JsxAttribute } from "typescript";
 
 interface Props {
   count: number;
-  //classname: string;
-  //dropdown: React.ReactElement;
+  classname: string;
+  dropdown: React.ReactNode;
+  icon: React.ReactNode;
 }
 
-//const ActionBtn = ({ classname, dropdown, icon, count }) => {
 const ActionBtn: React.FC<Props> = (props) => {
   let [dropdownVisible, setDropdownVisible] = useState(false);
   let [btnAreaHover, setBtnAreaHover] = useState(false);
@@ -30,14 +29,16 @@ const ActionBtn: React.FC<Props> = (props) => {
       }}
     >
       <button className={styles.newActionsBtn}>
-        {/* {icon} */}
-        {/* {count > 0 &&
-         <div className={`${styles.newActionsCount} ${styles[classname]}`}>
-            {count}
-          </div> 
-          } */}
+        {props.icon}
+        {props.count > 0 && (
+          <div
+            className={`${styles.newActionsCount} ${styles[props.classname]}`}
+          >
+            {props.count}
+          </div>
+        )}
       </button>
-      {/* {dropdownVisible && dropdown} */}
+      {dropdownVisible && props.dropdown}
     </div>
   );
 };

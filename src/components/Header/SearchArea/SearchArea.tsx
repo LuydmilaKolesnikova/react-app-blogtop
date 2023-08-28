@@ -8,7 +8,7 @@ const SearchArea = () => {
   let [searchBtnAreaHover, setSearchBtnAreaHover] = useState(false);
   let [inputText, setInputText] = useState("Search Here");
 
-  const onChangeInputText = (e) => {
+  const onChangeInputText = (e: any) => {
     setInputText(e.currentTarget.value);
   };
 

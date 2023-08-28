@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./MainMenu.module.css";
 
-const MainMenuLink = ({ link, title }) => {
+interface Props {
+  link: string;
+  title: string;
+}
+
+const MainMenuLink: React.FC<Props> = (props) => {
   let [linkHover, setLinkHover] = useState(false);
   return (
     <li
@@ -10,16 +15,16 @@ const MainMenuLink = ({ link, title }) => {
       onMouseOut={() => setLinkHover(false)}
     >
       <NavLink
-        to={link}
+        to={props.link}
         className={({ isActive }) =>
           isActive
             ? styles.mainMenuLinkActive
             : linkHover
             ? styles.mainMenuLinkHover
-            : null
+            : undefined
         }
       >
-        {title}
+        {props.title}
       </NavLink>
     </li>
   );

@@ -1,11 +1,16 @@
 import React from "react";
 import styles from "./StatisticsArea.module.css";
 
-const StatisticsInfoBlock = ({ title, count }) => {
+interface Props {
+  title: string;
+  count: number;
+}
+
+const StatisticsInfoBlock: React.FC<Props> = (props) => {
   return (
     <div className={styles.statisticsItem}>
-      <div className={styles.statisticsTitle}>{title}</div>
-      <div className={styles.statisticsInfo}>{count}</div>
+      <div className={styles.statisticsTitle}>{props.title}</div>
+      <div className={styles.statisticsInfo}>{props.count}</div>
     </div>
   );
 };
