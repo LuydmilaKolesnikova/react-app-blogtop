@@ -4,16 +4,21 @@ import classnames from "classnames";
 import { NavLink, Navigate } from "react-router-dom";
 import LocationContext from "../../utils/context/LocationProvider";
 
-const LogoutPage = ({ logout, isAuth }) => {
+interface Props {
+  isAuth: boolean | null;
+  logout: () => void;
+}
+
+const LogoutPage: React.FC<Props> = (props) => {
   const { location } = useContext(LocationContext);
 
-  return isAuth ? (
+  return props.isAuth ? (
     <div className={styles.wrapper}>
       <h1 className={styles.title}>Would you like to logout?</h1>
       <div className={styles.answerArea}>
         <NavLink
           className={classnames(styles.button, styles.yesBtn)}
-          onMouseDown={() => logout()}
+          onMouseDown={() => props.logout()}
           to="/"
         >
           YES
