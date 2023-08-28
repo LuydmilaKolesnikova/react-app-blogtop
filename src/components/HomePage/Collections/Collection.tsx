@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import styles from "./Collection.module.css";
+import { CollectionState } from "./Collections";
 
-const Collection = ({ data }) => {
+interface Props {
+  data: CollectionState;
+}
+
+const Collection: React.FC<Props> = (props) => {
   const [collectionHover, setCollectionHover] = useState(false);
-  const classname = data.title.toLowerCase();
+  const classname = props.data.title.toLowerCase();
   return (
     <div
       className={
@@ -12,9 +17,9 @@ const Collection = ({ data }) => {
       onMouseOver={() => setCollectionHover(true)}
       onMouseOut={() => setCollectionHover(false)}
     >
-      <h2 className={styles.title}>{data.title}</h2>
+      <h2 className={styles.title}>{props.data.title}</h2>
       <div className={`${styles.item} ${styles[classname]}`}>
-        {data.images.map((img, index) => {
+        {props.data.images.map((img, index) => {
           const classname = "img" + ++index;
           return (
             <img
