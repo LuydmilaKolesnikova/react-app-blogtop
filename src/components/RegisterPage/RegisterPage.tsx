@@ -4,6 +4,11 @@ import classnames from "classnames";
 import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 
+interface Props {
+  isRegistrationSuccess: boolean;
+  registering: (login: string, email: string, password: string) => void;
+}
+
 interface FormState {
   login: string;
   email: string;
@@ -11,12 +16,12 @@ interface FormState {
   repeatPassword: string;
 }
 
-const RegisterPage = ({ registering, isRegistrationSuccess }) => {
+const RegisterPage: React.FC<Props> = (props) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<FormState>({
     mode: "onBlur",
     defaultValues: {
       login: "",
@@ -27,12 +32,12 @@ const RegisterPage = ({ registering, isRegistrationSuccess }) => {
   });
 
   const onSubmit = (formState: FormState) => {
-    registering(formState.login, formState.email, formState.password);
+    props.registering(formState.login, formState.email, formState.password);
   };
 
   return (
     <div className={styles.wrapper}>
-      {isRegistrationSuccess ? (
+      {props.isRegistrationSuccess ? (
         <>
           <h1 className={styles.titleRegSuccess}>
             You have successfully registered!

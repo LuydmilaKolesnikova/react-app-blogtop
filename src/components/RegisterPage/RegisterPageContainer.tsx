@@ -1,12 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
+import { AnyAction } from "redux";
+import { ThunkDispatch } from "redux-thunk";
 import RegisterPage from "./RegisterPage";
 import { registering } from "../../redux/auth-reducer";
 import { State } from "../../redux/redux-store";
 
-interface Props {
-  isRegistrationSuccess: boolean;
+interface DispatchProps {
   registering: (login: string, email: string, password: string) => void;
+}
+
+interface Props extends DispatchProps {
+  isRegistrationSuccess: boolean;
 }
 
 class RegisterPageContainer extends React.Component<Props> {
@@ -25,7 +30,9 @@ const mapStateToProps = (state: State) => ({
   isRegistrationSuccess: state.auth.isRegistrationSuccess,
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (
+  dispatch: ThunkDispatch<State, DispatchProps, AnyAction>
+) => ({
   registering: (login: string, email: string, password: string) =>
     dispatch(registering(login, email, password)),
 });

@@ -15,9 +15,9 @@ interface SetUserDataAction {
 }
 
 export function setAuthUserData(
-  id?: number | null,
-  email?: string | null,
-  login?: string | null
+  id: number | null,
+  email: string | null,
+  login: string | null
 ): SetUserDataAction {
   return {
     type: SET_USER_DATA,
@@ -41,7 +41,7 @@ export function registrationSuccess(
 
 export interface AuthInitialState extends PayloadData {
   isAuth: boolean | null;
-  isRegistrationSuccess?: boolean;
+  isRegistrationSuccess: boolean;
 }
 
 let initialState: AuthInitialState = {
