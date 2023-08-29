@@ -5,12 +5,16 @@ import LocationContext, {
 } from "../context/LocationProvider";
 import { useContext } from "react";
 
-const PrivateRoute = ({ isAuth }) => {
+interface Props {
+  isAuth: boolean | null;
+}
+
+const PrivateRoute: React.FC<Props> = (props) => {
   const { setLocation } = useContext(LocationContext) as LocationContextType;
   const loc = useLocation();
   setLocation(loc.pathname);
 
-  return isAuth ? <Outlet /> : <Navigate to="/login" />;
+  return props.isAuth ? <Outlet /> : <Navigate to="/login" />;
 };
 
 export default PrivateRoute;
