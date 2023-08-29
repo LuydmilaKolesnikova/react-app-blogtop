@@ -84,9 +84,7 @@ export function getAuthUserData() {
         let { id, email, login } = response.data;
         dispatch(setAuthUserData(id, email, login));
       }
-    } catch (e) {
-      alert("No response from server");
-    }
+    } catch (e) {}
   };
 }
 

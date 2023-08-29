@@ -42,14 +42,14 @@ export interface HeaderInitialState {
   newActions: NewActionsState;
 }
 
-/* let initialState: HeaderInitialState = {
-  profileData: {},
-  statistics: {},
-  newActions: {},
-}; */
+let initialState: HeaderInitialState = {
+  profileData: { name: "hhhhh", address: "ffffff", photo: "wwwwwwwww" },
+  statistics: { posts: 55, followers: 33, following: 22 },
+  newActions: { followfeed: 42, messages: 31, notifications: 15 },
+};
 
 const headerReducer = (
-  state: HeaderInitialState,
+  state: HeaderInitialState = initialState,
   action: SetAuthUserDataAction
 ) => {
   switch (action.type) {

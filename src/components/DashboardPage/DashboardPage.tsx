@@ -9,11 +9,7 @@ import PostViews from "./PostViews/PostViews";
 import ProfileViews from "./ProfileViews/ProfileViews";
 import Upvotes from "./Upvotes/Upvotes";
 import UserSignup from "./UserSignup/UserSignup";
-import {
-  DashboardInitialState,
-  CommentsState,
-  GraphChartState,
-} from "../../redux/dashboard-reducer";
+import { DashboardInitialState } from "../../redux/dashboard-reducer";
 
 interface Props {
   dashboard: DashboardInitialState;
@@ -41,16 +37,3 @@ const DashboardPage: React.FC<Props> = (props) => {
 };
 
 export default DashboardPage;
-
-{
-  /* 
-          <ProfileViews profileViews={dashboard.profileViews} />
-          <PieChart pieChart={dashboard.pieChart} />
-          <GraphChart graphChart={props.graphChart} />
-          <UserSignup userSignup={dashboard.userSignup} />
-          <PostProgress postProgress={dashboard.postProgress} />
-          <LineGraph lineGraph={dashboard.lineGraph} />
- */
-}
-//graphChart: GraphChartState;
-//comments: CommentsState;
