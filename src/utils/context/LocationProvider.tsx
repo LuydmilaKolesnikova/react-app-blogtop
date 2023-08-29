@@ -1,18 +1,18 @@
 import { createContext, useState } from "react";
 
-type LocationContextType = {
+export type LocationContextType = {
   location: string;
   setLocation: (location: string) => void;
 };
 
-const LocationContext = createContext<LocationContextType>(null);
+const LocationContext = createContext<LocationContextType | null>(null);
 
 type ContextProviderProps = {
   children: React.ReactNode;
 };
 
 export const LocationProvider = ({ children }: ContextProviderProps) => {
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState<string>("");
   const value = {
     location,
     setLocation,

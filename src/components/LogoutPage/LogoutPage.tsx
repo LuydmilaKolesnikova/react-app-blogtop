@@ -2,7 +2,9 @@ import React, { useContext } from "react";
 import styles from "./LogoutPage.module.css";
 import classnames from "classnames";
 import { NavLink, Navigate } from "react-router-dom";
-import LocationContext from "../../utils/context/LocationProvider";
+import LocationContext, {
+  LocationContextType,
+} from "../../utils/context/LocationProvider";
 
 interface Props {
   isAuth: boolean | null;
@@ -10,7 +12,7 @@ interface Props {
 }
 
 const LogoutPage: React.FC<Props> = (props) => {
-  const { location } = useContext(LocationContext);
+  const { location } = useContext(LocationContext) as LocationContextType;
 
   return props.isAuth ? (
     <div className={styles.wrapper}>

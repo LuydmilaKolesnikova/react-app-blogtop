@@ -2,12 +2,14 @@ import React, { useState, useContext } from "react";
 import styles from "./ProfileMenu.module.css";
 import ProfileMenuDropdown from "./ProfileMenuDropdown";
 import profileIcon from "../../../images/profile-icon.jpg";
-import LocationContext from "../../../utils/context/LocationProvider";
+import LocationContext, {
+  LocationContextType,
+} from "../../../utils/context/LocationProvider";
 import { useLocation } from "react-router-dom";
 
 const ProfileMenu = () => {
   let [profileMenuVisible, setProfileMenuVisible] = useState(false);
-  const { setLocation } = useContext(LocationContext);
+  const { setLocation } = useContext(LocationContext) as LocationContextType;
   const loc = useLocation();
 
   const setLocationPath = () => {
