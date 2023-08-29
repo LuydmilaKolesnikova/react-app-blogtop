@@ -2,7 +2,9 @@ import React, { useContext, useState } from "react";
 import styles from "./LoginPage.module.css";
 import classnames from "classnames";
 import { useForm } from "react-hook-form";
-import LocationContext from "../../utils/context/LocationProvider";
+import LocationContext, {
+  LocationContextType,
+} from "../../utils/context/LocationProvider";
 import { NavLink, Navigate } from "react-router-dom";
 
 interface FormState {
@@ -16,7 +18,7 @@ interface Props {
 }
 
 const LoginPage: React.FC<Props> = (props) => {
-  const { location } = useContext(LocationContext);
+  const { location } = useContext(LocationContext) as LocationContextType;
   const [reg, setReg] = useState(false);
 
   const {
