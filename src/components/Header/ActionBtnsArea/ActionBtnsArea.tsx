@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styles from "./ActionBtnsArea.module.css";
+import ActionBtn from "./ActionBtn";
 import { FollowfeedIcon } from "../../SVG-icons/SVG-icons";
 import { MessagesIcon } from "../../SVG-icons/SVG-icons";
 import { NotificationsIcon } from "../../SVG-icons/SVG-icons";
-import ActionBtn from "./ActionBtn";
 import FollowfeedDropdown from "./ActionDropdown/FollowfeedDropdown";
 import MessagesDropdown from "./ActionDropdown/MessagesDropdown";
 import NotificationsDropdown from "./ActionDropdown/NotificationsDropdown";
@@ -13,34 +13,34 @@ interface Props {
   newActions: NewActionsState;
 }
 
-const propertyToStringReactComponent = (
+const propertyToNode = (
   property: string,
   definition: string
-): string => {
-  return (
+): React.ReactNode => {
+  let nodeAsString: string =
     "<" +
     property.charAt(0).toUpperCase() +
     property.slice(1) +
     definition +
-    " />"
-  );
+    " />";
+  let node: React.ReactNode = nodeAsString as React.ReactNode;
+  return node;
 };
 
 const ActionBtnsArea: React.FC<Props> = (props) => {
   const elements = [];
 
   for (let property in props.newActions) {
-    let dropdownComponent = propertyToStringReactComponent(
-      property,
-      "Dropdown"
-    );
-    let iconComponent = propertyToStringReactComponent(property, "Icon");
+    let dropdownComponent = propertyToNode(property, "Dropdown");
+    let iconComponent = propertyToNode(property, "Icon");
+    console.log(dropdownComponent);
+    console.log(iconComponent);
     elements.push(
       <ActionBtn
         classname={property + "Count"}
         count={props.newActions[property]}
-        dropdown={dropdownComponent as React.ReactNode}
-        icon={iconComponent as React.ReactNode}
+        dropdown={dropdownComponent}
+        icon={iconComponent}
       />
     );
   }

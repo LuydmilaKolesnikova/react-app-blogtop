@@ -1,5 +1,11 @@
 import React, { useState } from "react";
 import styles from "./ActionBtnsArea.module.css";
+import { FollowfeedIcon } from "../../SVG-icons/SVG-icons";
+import { MessagesIcon } from "../../SVG-icons/SVG-icons";
+import { NotificationsIcon } from "../../SVG-icons/SVG-icons";
+import FollowfeedDropdown from "./ActionDropdown/FollowfeedDropdown";
+import MessagesDropdown from "./ActionDropdown/MessagesDropdown";
+import NotificationsDropdown from "./ActionDropdown/NotificationsDropdown";
 
 interface Props {
   count: number;
