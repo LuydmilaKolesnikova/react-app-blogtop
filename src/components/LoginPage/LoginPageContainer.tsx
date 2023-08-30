@@ -1,12 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
+import { AnyAction } from "redux";
+import { ThunkDispatch } from "redux-thunk";
 import LoginPage from "./LoginPage";
 import { login } from "../../redux/auth-reducer";
 import { State } from "../../redux/redux-store";
 
-interface Props {
-  isAuth: boolean | null;
+interface DispatchProps {
   login: (email: string, password: string) => void;
+}
+
+interface Props extends DispatchProps {
+  isAuth: boolean | null;
 }
 
 class LoginPageContainer extends React.Component<Props> {
@@ -25,7 +30,9 @@ const mapStateToProps = (state: State) => ({
   isAuth: state.auth.isAuth,
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
+const mapDispatchToProps = (
+  dispatch: ThunkDispatch<State, DispatchProps, AnyAction>
+) => ({
   login: (email: string, password: string) => dispatch(login(email, password)),
 });
 
