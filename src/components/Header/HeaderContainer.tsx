@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import { AnyAction } from "redux";
+import { ThunkDispatch } from "redux-thunk";
 import Header from "./Header";
 import { getAuthUserData } from "../../redux/header-reducer";
 import {
@@ -9,12 +11,15 @@ import {
 } from "../../redux/header-reducer";
 import { State } from "../../redux/redux-store";
 
-interface Props {
+interface DispatchProps {
+  getAuthUserData: (id: number) => void;
+}
+
+interface Props extends DispatchProps {
   profileData: ProfileDataState;
   statistics: StatisticsState;
   newActions: NewActionsState;
   isAuth: boolean | null;
-  getAuthUserData: (id: number) => void;
 }
 
 class HeaderContainer extends React.Component<Props> {
@@ -42,7 +47,9 @@ const mapStateToProps = (state: State) => ({
   isAuth: state.auth.isAuth,
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
+const mapDispatchToProps = (
+  dispatch: ThunkDispatch<State, DispatchProps, AnyAction>
+) => ({
   getAuthUserData: (id: number) => dispatch(getAuthUserData(id)),
 });
 
