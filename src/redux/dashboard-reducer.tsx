@@ -91,9 +91,9 @@ export interface DashboardInitialState {
 }
 
 let initialState: DashboardInitialState = {
-  postViews: { number: 20, procent: 30 },
+  postViews: {},
   upvotes: {},
-  comments: { number: 20, procent: 30 },
+  comments: {},
   profileViews: {},
   pieChart: { allVisitors: 20, os: [{ osName: "ioS", count: 5 }] },
   graphChart: { views: [{ month: "January", count: 30 }] },
@@ -127,6 +127,15 @@ const dashboardReducer = (
     case SET_AUTH_USER_DASHBOARD: {
       return {
         ...state,
+        postViews: action.dashboardData.postViews,
+        upvotes: action.dashboardData.upvotes,
+        comments: action.dashboardData.comments,
+        profileViews: action.dashboardData.profileViews,
+        pieChart: action.dashboardData.pieChart,
+        graphChart: action.dashboardData.graphChart,
+        userSignup: action.dashboardData.userSignup,
+        postProgress: action.dashboardData.postProgress,
+        lineGraph: action.dashboardData.lineGraph,
       };
     }
     default:
