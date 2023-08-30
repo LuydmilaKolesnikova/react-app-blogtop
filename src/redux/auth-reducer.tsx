@@ -40,7 +40,7 @@ export function registrationSuccess(
 }
 
 export interface AuthInitialState extends PayloadData {
-  isAuth: boolean | null;
+  isAuth: boolean;
   isRegistrationSuccess: boolean;
 }
 

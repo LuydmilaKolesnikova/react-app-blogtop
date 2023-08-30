@@ -18,7 +18,7 @@ interface Props {
   profileData: ProfileDataState;
   statistics: StatisticsState;
   newActions: NewActionsState;
-  isAuth: boolean | null;
+  isAuth: boolean;
 }
 
 const Header: React.FC<Props> = (props) => {

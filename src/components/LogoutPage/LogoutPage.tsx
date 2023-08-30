@@ -7,7 +7,7 @@ import LocationContext, {
 } from "../../utils/context/LocationProvider";
 
 interface Props {
-  isAuth: boolean | null;
+  isAuth: boolean;
   logout: () => void;
 }
 

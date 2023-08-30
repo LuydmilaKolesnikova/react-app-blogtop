@@ -11,7 +11,7 @@ interface DispatchProps {
 }
 
 interface Props extends DispatchProps {
-  isAuth: boolean | null;
+  isAuth: boolean;
 }
 
 class LogoutPageContainer extends React.Component<Props> {

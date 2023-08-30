@@ -19,7 +19,7 @@ interface Props extends DispatchProps {
   profileData: ProfileDataState;
   statistics: StatisticsState;
   newActions: NewActionsState;
-  isAuth: boolean | null;
+  isAuth: boolean;
 }
 
 class HeaderContainer extends React.Component<Props> {
