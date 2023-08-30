@@ -6,7 +6,7 @@ import LocationContext, {
 import { useContext } from "react";
 
 interface Props {
-  isAuth: boolean | null;
+  isAuth: boolean;
 }
 
 const PrivateRoute: React.FC<Props> = (props) => {

@@ -14,7 +14,7 @@ interface FormState {
 
 interface Props {
   login: (email: string, password: string) => void;
-  isAuth: boolean | null;
+  isAuth: boolean;
 }
 
 const LoginPage: React.FC<Props> = (props) => {

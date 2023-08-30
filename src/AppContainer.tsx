@@ -25,9 +25,7 @@ class AppContainer extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (state: State) => ({
-  postsData: state.footer.postsData,
-});
+const mapStateToProps = () => ({});
 
 const mapDispatchToProps = (
   dispatch: ThunkDispatch<State, DispatchProps, AnyAction>

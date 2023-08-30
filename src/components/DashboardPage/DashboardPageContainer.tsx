@@ -1,13 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
+import { AnyAction } from "redux";
+import { ThunkDispatch } from "redux-thunk";
 import DashboardPage from "./DashboardPage";
 import { getAuthUserDashboard } from "../../redux/dashboard-reducer";
 import { State } from "../../redux/redux-store";
 import { DashboardInitialState } from "../../redux/dashboard-reducer";
 
-export interface Props {
+interface DispatchProps {
+  getAuthUserDashboard: (id: number) => Promise<void>;
+}
+
+export interface Props extends DispatchProps {
   dashboard: DashboardInitialState;
-  getAuthUserDashboard: (id: number) => DashboardInitialState;
 }
 
 class DashboardPageContainer extends React.Component<Props> {
@@ -24,7 +29,9 @@ const mapStateToProps = (state: State) => ({
   dashboard: state.dashboard,
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
+const mapDispatchToProps = (
+  dispatch: ThunkDispatch<State, DispatchProps, AnyAction>
+) => ({
   getAuthUserDashboard: (id: number) => dispatch(getAuthUserDashboard(id)),
 });
 

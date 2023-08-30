@@ -4,7 +4,7 @@ import PrivateRoute from "./PrivateRoute";
 import { State } from "../../redux/redux-store";
 
 interface Props {
-  isAuth: boolean | null;
+  isAuth: boolean;
 }
 
 class PrivateRouteContainer extends React.Component<Props> {
