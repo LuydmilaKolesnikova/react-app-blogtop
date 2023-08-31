@@ -74,9 +74,9 @@ export interface PostProgressState {
   }[];
 }
 
-export interface LineGraphState {
-  points: { newUsers: number; year: number }[];
-}
+export type LineGraphState = {
+  points: Array<[number, number]>;
+};
 
 export interface DashboardInitialState {
   postViews: PostViewsState;
@@ -116,7 +116,7 @@ let initialState: DashboardInitialState = {
       },
     ],
   },
-  lineGraph: { points: [{ newUsers: 25, year: 2020 }] },
+  lineGraph: { points: Array([25, 2013], [30, 2014]) },
 };
 
 const dashboardReducer = (
