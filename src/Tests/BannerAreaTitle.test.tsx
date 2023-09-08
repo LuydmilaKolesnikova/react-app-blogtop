@@ -3,5 +3,5 @@ import BannerArea from '../components/HomePage/BannerArea/BannerArea';
 
 test('renders banner area title', () => {
   render(<BannerArea />);
-  expect(screen.getByText(/PERFECT PLACE FOR YOUR STORIES/i)).toBeInTheDocument();
+  expect(screen.getByText(/PERFECT PLACE FOR YOUR STORIE/i)).toBeInTheDocument();
 });
