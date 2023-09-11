@@ -78,7 +78,6 @@ const LoginPage: React.FC<Props> = (props) => {
                 Password
               </label>
               <input
-              data-name="password"
                 type="password"
                 placeholder="input password..."
                 className={classnames(styles.input, {

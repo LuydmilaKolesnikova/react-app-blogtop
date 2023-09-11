@@ -38,7 +38,7 @@ describe("renders LoginPage", () => {
       </BrowserRouter>
     );
     const input = screen.getByPlaceholderText(/input password/i);
-    await user.type(input, "12345abcdef");
+    await user.type(input, "12345abcdef{enter}");
     screen.debug();
     expect(screen.getByText(/Max length is 10/i));
   });
