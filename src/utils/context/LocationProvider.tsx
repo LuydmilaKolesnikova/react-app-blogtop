@@ -5,7 +5,7 @@ export type LocationContextType = {
   setLocation: (location: string) => void;
 };
 
-const LocationContext = createContext<LocationContextType | null>(null);
+const LocationContext = createContext<LocationContextType>({location: "/", setLocation: ()=> {}});
 
 type ContextProviderProps = {
   children: React.ReactNode;
