@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import DashboardPageContainer from "./components/DashboardPage/DashboardPageContainer";
@@ -23,7 +23,7 @@ const App: React.FC<Props> = (props) => {
   });
 
   return (
-    <BrowserRouter>
+    <HashRouter basename="/">
       <div className="app-wrapper">
         <HeaderContainer />
         <Routes>
@@ -42,7 +42,7 @@ const App: React.FC<Props> = (props) => {
         </Routes>
         <Footer postsData={initialState} />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
