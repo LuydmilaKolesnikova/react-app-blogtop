@@ -6,7 +6,7 @@
   },
   "name": "test",
   "version": "0.1.0",
-  "homepage": "https://luydmilakolesnikova.github.io/",
+  "homepage": "https://luydmilakolesnikova.github.io/react-app-blogtop",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",

@@ -23,7 +23,7 @@ const App: React.FC<Props> = (props) => {
   });
 
   return (
-    <HashRouter basename="/">
+    <HashRouter>
       <div className="app-wrapper">
         <HeaderContainer />
         <Routes>
