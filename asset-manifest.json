@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-app-blogtop/static/css/main.a443e926.css",
-    "main.js": "/react-app-blogtop/static/js/main.49294315.js",
+    "main.css": "/react-app-blogtop/static/css/main.39df685d.css",
+    "main.js": "/react-app-blogtop/static/js/main.cd713411.js",
     "static/js/787.0c3f432a.chunk.js": "/react-app-blogtop/static/js/787.0c3f432a.chunk.js",
     "static/media/header-bg.jpg": "/react-app-blogtop/static/media/header-bg.4958e5bf51b7f4662f5a.jpg",
     "static/media/photo2.png": "/react-app-blogtop/static/media/photo2.d89f108e24e778df947f.png",
@@ -57,16 +57,16 @@
     "static/media/image3.jpg": "/react-app-blogtop/static/media/image3.16d32aab1c8ee079a99f.jpg",
     "static/media/avatar5.png": "/react-app-blogtop/static/media/avatar5.6f0c2eebbc6a7bf9a0c6.png",
     "index.html": "/react-app-blogtop/index.html",
-    "static/media/like.svg": "/react-app-blogtop/static/media/like.0ed0cf505a09fdc971ea0f4d38c7f658.svg",
-    "static/media/message.svg": "/react-app-blogtop/static/media/message.bd15c3f062a4ed6454f51deeddeb05f5.svg",
-    "static/media/views.svg": "/react-app-blogtop/static/media/views.a8f446d739b60996510a6c7b87db69d7.svg",
-    "static/media/left.svg": "/react-app-blogtop/static/media/left.99fd3e7b1501b31aa32aca4b849fdbab.svg",
-    "main.a443e926.css.map": "/react-app-blogtop/static/css/main.a443e926.css.map",
-    "main.49294315.js.map": "/react-app-blogtop/static/js/main.49294315.js.map",
+    "static/media/like.svg": "/react-app-blogtop/static/media/like.c9e235a1a89893b87ea99bfa0528c70d.svg",
+    "static/media/message.svg": "/react-app-blogtop/static/media/message.7f8a7efa2c90abc324571ddb2c542bb0.svg",
+    "static/media/views.svg": "/react-app-blogtop/static/media/views.a97cd6c2f3f0aa8732bd4d7014b138dc.svg",
+    "static/media/left.svg": "/react-app-blogtop/static/media/left.c80cdd8edb8ab6c8a1634e6d14e15383.svg",
+    "main.39df685d.css.map": "/react-app-blogtop/static/css/main.39df685d.css.map",
+    "main.cd713411.js.map": "/react-app-blogtop/static/js/main.cd713411.js.map",
     "787.0c3f432a.chunk.js.map": "/react-app-blogtop/static/js/787.0c3f432a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a443e926.css",
-    "static/js/main.49294315.js"
+    "static/css/main.39df685d.css",
+    "static/js/main.cd713411.js"
   ]
 }
