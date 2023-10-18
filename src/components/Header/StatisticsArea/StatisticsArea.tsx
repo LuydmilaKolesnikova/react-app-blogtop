@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./StatisticsArea.module.css";
 import StatisticsInfoBlock from "./StatisticsInfoBlock";
 import { StatisticsState } from "../../../redux/header-reducer";
