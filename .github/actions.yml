@@ -2,8 +2,9 @@ name: Test, build and deploy React App
 on:
   workflow_dispatch:
   push:
-    branches:
-      - "main"
+    branches: [main]
+  pull_request:
+    branches: [main]
 jobs:
   deploy:
     runs-on: ubuntu-latest
