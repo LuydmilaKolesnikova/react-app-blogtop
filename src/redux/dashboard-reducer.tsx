@@ -116,7 +116,12 @@ let initialState: DashboardInitialState = {
       },
     ],
   },
-  lineGraph: { points: Array([25, 2013], [30, 2014]) },
+  lineGraph: {
+    points: [
+      [25, 2013],
+      [30, 2014],
+    ],
+  },
 };
 
 const dashboardReducer = (
