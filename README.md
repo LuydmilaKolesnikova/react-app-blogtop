@@ -14,6 +14,8 @@ on other people's posts, add friends and follow their posts.
   <li>Creating forms with <a href="https://react-hook-form.com">React Hook Form</a></li>
   <li>Creating graphs and charts using <a href="https://d3js.org">D3</a></li>
   <li>Apply utility <a href="https://www.npmjs.com/package/classnames">classnames</a> to join different classes a simpler way</li>
+  <li>Writing tests with <a href="https://jestjs.io">Jest</a></li>
+  <li>CI/CD using <a href="https://docs.github.com/en/actions">GitHub Actions</a></li>  
 </ul>
 
 ## Setup
